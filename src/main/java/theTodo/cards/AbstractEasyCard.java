@@ -15,12 +15,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theTodo.TheTodo;
+import theTodo.TheSoulbinder;
 import theTodo.util.CardArtRoller;
 
 import java.util.ArrayList;
 
-import static theTodo.TodoMod.*;
+import static theTodo.SoulbinderMod.*;
 import static theTodo.util.Wiz.atb;
 import static theTodo.util.Wiz.att;
 
@@ -45,7 +45,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     private boolean needsArtRefresh = false;
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, TheTodo.Enums.TODO_COLOR);
+        this(cardID, cost, type, rarity, target, TheSoulbinder.Enums.SOULBINDER_COLOR);
     }
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {

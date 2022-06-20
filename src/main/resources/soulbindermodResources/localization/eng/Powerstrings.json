@@ -1,0 +1,30 @@
+{
+  "${ModID}:ExampleTwoAmount": {
+    "NAME": "Example 2",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yStrength and #b",
+      " #yDexterity."
+    ]
+  },
+  "${ModID}:DefenderPower": {
+    "NAME": "Defender",
+    "DESCRIPTIONS": [
+      " will take the next #b",
+      " Attack"," Attacks"," This turn instead of you"
+    ]
+  },
+  "${ModID}:ProtectedPower": {
+    "NAME": "Protected",
+    "DESCRIPTIONS": [
+      " is protecting you from the #b",
+      " Attack"," Attacks"," This turn"
+    ]
+  },
+  "${ModID}:UndeadPower": {
+    "NAME": "Undead",
+    "DESCRIPTIONS": [
+      "When this dies while Defending any excess damage will be transferred to the Summoner."
+    ]
+  }
+}

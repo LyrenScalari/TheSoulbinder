@@ -12,7 +12,7 @@ import theTodo.cards.AbstractEasyCard;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static theTodo.TodoMod.makeID;
+import static theTodo.SoulbinderMod.makeID;
 import static theTodo.util.Wiz.getRandomItem;
 import static theTodo.util.Wiz.makeInHand;
 

@@ -1,6 +1,5 @@
 package theTodo.cards.democards.complex;
 
-import basemod.AutoAdd;
 import basemod.cardmods.EtherealMod;
 import basemod.cardmods.ExhaustMod;
 import basemod.helpers.CardModifierManager;
@@ -14,7 +13,7 @@ import theTodo.cards.AbstractEasyCard;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static theTodo.TodoMod.makeID;
+import static theTodo.SoulbinderMod.makeID;
 import static theTodo.util.Wiz.*;
 
 public class SelectCardsPlusCardMods extends AbstractEasyCard {

@@ -5,7 +5,15 @@
   },
   "${ModID}:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block."
+    "DESCRIPTION": "Gain !B! [soulbindermod:BlockIcon]"
+  },
+  "${ModID}:Absorb": {
+    "NAME": "Absorb",
+    "DESCRIPTION": "Lose !M! HP and increase this loss by !${ModID}:m2! this combat. NL Deal !D! [soulbindermod:SyphonIcon] damage."
+  },
+  "${ModID}:BoneSculpt": {
+    "NAME": "Bone Sculpt",
+    "DESCRIPTION": "soulbindermod:Summon a soulbindermod:Skeleton"
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amounts, One Power",

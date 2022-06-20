@@ -1,0 +1,36 @@
+[
+  {
+    "PROPER_NAME": "Summon",
+    "NAMES": [
+      "summon",
+      "Summon"
+    ],
+    "DESCRIPTION": "#ySummoning an #yUndead creates a Minion to aid you in battle. When maximum minions is reached #ySummoning will cause minions of the same type will form a Hoard."
+  },
+  {
+    "PROPER_NAME": "Skeleton",
+    "NAMES": [
+      "skeleton",
+      "Skeleton"
+    ],
+    "DESCRIPTION": "#yUndead, Weak and fragile minions capable of taking blows for you and dealing damage NL HP - #b6 NL Pow - #b4 NL Block - #b4"
+  },
+  {
+    "PROPER_NAME": "Syphon",
+    "NAMES": [
+      "syphon",
+      "Syphon"
+    ],
+    "DESCRIPTION": "Syphon damage restores HP equal to the power of the attack."
+  },
+  {
+    "PROPER_NAME": "Souls",
+    "NAMES": [
+      "souls",
+      "Souls",
+      "soul",
+      "Soul"
+    ],
+    "DESCRIPTION": "#ySouls are gathered by slaying non-Minion enemies and Grant #b3 additional Max HP while stored are used for many powerful effects the Soulbinders Lichdom permits, including resurrecting on the spot Healing to half your max HP."
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "${ModID}:TodoItem": {
+    "NAME": "Guiding Lantern",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "At the start of combat, #y${ModID}:Summon a #y${ModID}:Skeleton"
+    ]
+  },
+  "${ModID}:LichesPhylactery": {
+    "NAME": "Liches Phylactery",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "When you would die, lose a #y${ModID}:Soul instead and heal to half your max HP."
+    ]
+  }
+}

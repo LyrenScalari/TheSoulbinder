@@ -8,7 +8,7 @@ import theTodo.actions.EasyXCostAction;
 import theTodo.cards.AbstractEasyCard;
 
 import static theTodo.util.Wiz.*;
-import static theTodo.TodoMod.makeID;
+import static theTodo.SoulbinderMod.makeID;
 
 public class EasyXCostDemo extends AbstractEasyCard {
     public final static String ID = makeID("EasyXCostDemo");

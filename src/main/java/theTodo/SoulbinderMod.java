@@ -6,44 +6,57 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import theTodo.Icons.*;
+import theTodo.Patches.SoulsField;
 import theTodo.cards.AbstractEasyCard;
 import theTodo.cards.cardvars.SecondDamage;
 import theTodo.cards.cardvars.SecondMagicNumber;
 import theTodo.relics.AbstractEasyRelic;
+import theTodo.util.SoulsCounter;
 
+import javax.swing.*;
 import java.nio.charset.StandardCharsets;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 @SpireInitializer
-public class TodoMod implements
+public class SoulbinderMod implements
         EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber {
 
-    public static final String modID = "todomod"; //TODO: Change this.
+    public static final String modID = "soulbindermod"; //TODO: Change this.
 
     public static String makeID(String idText) {
         return modID + ":" + idText;
     }
 
     // This makes debugging so much easier
-    public static Logger logger = LogManager.getLogger(TodoMod.class.getName());
+    public static Logger logger = LogManager.getLogger(SoulbinderMod.class.getName());
 
     public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
-
+    private static boolean renderSoulsCounter = false;
+    public static final Texture soulIcon = ImageMaster.loadImage("soulbindermodResources/images/ui/Soul.png");
+    public static SoulsCounter soulsCounter;
     public static final String SHOULDER1 = modID + "Resources/images/char/mainChar/shoulder.png";
     public static final String SHOULDER2 = modID + "Resources/images/char/mainChar/shoulder2.png";
     public static final String CORPSE = modID + "Resources/images/char/mainChar/corpse.png";
@@ -59,10 +72,9 @@ public class TodoMod implements
     private static final String CHARSELECT_BUTTON = modID + "Resources/images/charSelect/charButton.png";
     private static final String CHARSELECT_PORTRAIT = modID + "Resources/images/charSelect/charBG.png";
 
-    public TodoMod() {
+    public SoulbinderMod() {
         BaseMod.subscribe(this);
-
-        BaseMod.addColor(TheTodo.Enums.TODO_COLOR, characterColor, characterColor, characterColor,
+        BaseMod.addColor(TheSoulbinder.Enums.SOULBINDER_COLOR, characterColor, characterColor, characterColor,
                 characterColor, characterColor, characterColor, characterColor,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
@@ -90,13 +102,13 @@ public class TodoMod implements
     }
 
     public static void initialize() {
-        TodoMod thismod = new TodoMod();
+        SoulbinderMod thismod = new SoulbinderMod();
     }
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new TheTodo(TheTodo.characterStrings.NAMES[1], TheTodo.Enums.THE_TODO),
-                CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheTodo.Enums.THE_TODO);
+        BaseMod.addCharacter(new TheSoulbinder(TheSoulbinder.characterStrings.NAMES[1], TheSoulbinder.Enums.THE_SOULBINDER),
+                CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheSoulbinder.Enums.THE_SOULBINDER);
     }
 
     @Override
@@ -113,8 +125,37 @@ public class TodoMod implements
                         UnlockTracker.markRelicAsSeen(relic.relicId);
                     }
                 });
+        CustomIconHelper.addCustomIcon(BlockIcon.get());
+        CustomIconHelper.addCustomIcon(WeakIcon.get());
+        CustomIconHelper.addCustomIcon(VulnerableIcon.get());
+        CustomIconHelper.addCustomIcon(PoisonIcon.get());
+        CustomIconHelper.addCustomIcon(SyphonIcon.get());
+    }
+    public void receivePostInitialize() {
+        soulsCounter = new SoulsCounter(soulIcon);
+    }
+    public static boolean getSoulsRender(){
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            if (renderSoulsCounter) {
+                soulsCounter = new SoulsCounter(soulIcon);
+                return true;
+            } else if (SoulsField.Souls.get(AbstractDungeon.player) > 0 || AbstractDungeon.player.chosenClass == TheSoulbinder.Enums.THE_SOULBINDER) {
+                renderSoulsCounter = true;
+                soulsCounter = new SoulsCounter(soulIcon);
+                return true;
+            }
+        }
+        return false;
     }
 
+    public static void renderSoulsCounter(SpriteBatch sb, float current_x){
+        soulsCounter.render(sb, current_x);
+    }
+
+    public static void updateSoulsCounter()
+    {
+        soulsCounter.update();
+    }
     @Override
     public void receiveEditCards() {
         BaseMod.addDynamicVariable(new SecondMagicNumber());

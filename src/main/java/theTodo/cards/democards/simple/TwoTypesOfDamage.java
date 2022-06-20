@@ -1,15 +1,12 @@
 package theTodo.cards.democards.simple;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import theTodo.cards.AbstractEasyCard;
 
-import static theTodo.TodoMod.makeID;
-import static theTodo.util.Wiz.*;
+import static theTodo.SoulbinderMod.makeID;
 
 public class TwoTypesOfDamage extends AbstractEasyCard {
     public final static String ID = makeID("TwoTypesOfDamage");

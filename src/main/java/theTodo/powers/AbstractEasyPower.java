@@ -9,10 +9,10 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
-import theTodo.TodoMod;
+import theTodo.SoulbinderMod;
 import theTodo.util.TexLoader;
 
-import static theTodo.TodoMod.makeID;
+import static theTodo.SoulbinderMod.makeID;
 
 public abstract class AbstractEasyPower extends AbstractPower {
     public int amount2 = -1;
@@ -34,8 +34,8 @@ public abstract class AbstractEasyPower extends AbstractPower {
         this.amount = amount;
         this.type = powerType;
 
-        Texture normalTexture = TexLoader.getTexture(TodoMod.modID + "Resources/images/powers/" + NAME.replaceAll("([ ])", "") + "32.png");
-        Texture hiDefImage = TexLoader.getTexture(TodoMod.modID + "Resources/images/powers/" + NAME.replaceAll("([ ])", "") + "84.png");
+        Texture normalTexture = TexLoader.getTexture(SoulbinderMod.modID + "Resources/images/powers/" + NAME.replaceAll("([ ])", "") + "32.png");
+        Texture hiDefImage = TexLoader.getTexture(SoulbinderMod.modID + "Resources/images/powers/" + NAME.replaceAll("([ ])", "") + "84.png");
         if (hiDefImage != null) {
             region128 = new TextureAtlas.AtlasRegion(hiDefImage, 0, 0, hiDefImage.getWidth(), hiDefImage.getHeight());
             if (normalTexture != null)

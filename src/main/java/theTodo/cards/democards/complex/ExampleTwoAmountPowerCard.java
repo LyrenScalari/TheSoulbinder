@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theTodo.cards.AbstractEasyCard;
 import theTodo.powers.ExampleTwoAmountPower;
 
-import static theTodo.TodoMod.makeID;
+import static theTodo.SoulbinderMod.makeID;
 import static theTodo.util.Wiz.applyToSelf;
 
 public class ExampleTwoAmountPowerCard extends AbstractEasyCard {

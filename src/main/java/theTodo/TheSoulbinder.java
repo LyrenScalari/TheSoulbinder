@@ -19,15 +19,19 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import theTodo.cards.Defend;
+import theTodo.cards.SoulbinderCards.Absorb;
+import theTodo.cards.SoulbinderCards.BoneSculpt;
 import theTodo.cards.Strike;
+import theTodo.relics.LichesPhylactery;
 import theTodo.relics.TodoItem;
 
 import java.util.ArrayList;
 
-import static theTodo.TheTodo.Enums.TODO_COLOR;
-import static theTodo.TodoMod.*;
+import static hlysine.friendlymonsters.utils.MinionUtils.*;
+import static theTodo.TheSoulbinder.Enums.SOULBINDER_COLOR;
+import static theTodo.SoulbinderMod.*;
 
-public class TheTodo extends CustomPlayer {
+public class TheSoulbinder extends CustomPlayer {
     private static final String[] orbTextures = {
             modID + "Resources/images/char/mainChar/orb/layer1.png",
             modID + "Resources/images/char/mainChar/orb/layer2.png",
@@ -40,13 +44,13 @@ public class TheTodo extends CustomPlayer {
             modID + "Resources/images/char/mainChar/orb/layer3d.png",
             modID + "Resources/images/char/mainChar/orb/layer4d.png",
             modID + "Resources/images/char/mainChar/orb/layer5d.png",};
-    static final String ID = makeID("TheTodo"); //TODO: Change this
+    static final String ID = makeID("TheSoulbinder"); //TODO: Change this
     static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
 
 
-    public TheTodo(String name, PlayerClass setClass) {
+    public TheSoulbinder(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", null), new SpriterAnimation(
                 modID + "Resources/images/char/mainChar/static.scml"));
         initializeClass(null,
@@ -55,16 +59,27 @@ public class TheTodo extends CustomPlayer {
                 CORPSE,
                 getLoadout(), 20.0F, -10.0F, 166.0F, 327.0F, new EnergyManager(3));
 
-
+        setBaseMinionCount(this,5);
+        setBaseMinionPowerChance(this,0);
+        setBaseMinionAttackTargetChance(this,0);
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 240.0F * Settings.scale);
     }
 
     @Override
     public CharSelectInfo getLoadout() {
-        return new CharSelectInfo(NAMES[0], TEXT[0],
-                80, 80, 0, 99, 5, this, getStartingRelics(),
-                getStartingDeck(), false);
+        return new CharSelectInfo(
+                characterStrings.NAMES[0],
+                characterStrings.TEXT[0],
+                50, //currentHP
+                50, //maxHP
+                0,  //maxOrbs
+                99, //gold
+                5,  //cardDraw
+                this,
+                getStartingRelics(),
+                getStartingDeck(),
+                false);
     }
 
     @Override
@@ -76,6 +91,8 @@ public class TheTodo extends CustomPlayer {
         for (int i = 0; i < 4; i++) {
             retVal.add(Defend.ID);
         }
+        retVal.add(Absorb.ID);
+        retVal.add(BoneSculpt.ID);
         return retVal;
     }
 
@@ -104,7 +121,7 @@ public class TheTodo extends CustomPlayer {
 
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return TODO_COLOR;
+        return SOULBINDER_COLOR;
     }
 
     @Override
@@ -135,7 +152,7 @@ public class TheTodo extends CustomPlayer {
 
     @Override
     public AbstractPlayer newInstance() {
-        return new TheTodo(name, chosenClass);
+        return new TheSoulbinder(name, chosenClass);
     }
 
     @Override
@@ -169,10 +186,10 @@ public class TheTodo extends CustomPlayer {
     public static class Enums {
         //TODO: Change these.
         @SpireEnum
-        public static AbstractPlayer.PlayerClass THE_TODO;
-        @SpireEnum(name = "TODO_COLOR")
-        public static AbstractCard.CardColor TODO_COLOR;
-        @SpireEnum(name = "TODO_COLOR")
+        public static AbstractPlayer.PlayerClass THE_SOULBINDER;
+        @SpireEnum(name = "SOULBINDER_COLOR")
+        public static AbstractCard.CardColor SOULBINDER_COLOR;
+        @SpireEnum(name = "SOULBINDER_COLOR")
         @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }

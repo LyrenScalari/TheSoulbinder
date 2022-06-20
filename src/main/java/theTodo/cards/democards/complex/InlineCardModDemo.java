@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.beyond.Spiker;
 import theTodo.cardmods.LambdaMod;
 import theTodo.cards.AbstractEasyCard;
 
-import static theTodo.TodoMod.makeID;
+import static theTodo.SoulbinderMod.makeID;
 import static theTodo.util.Wiz.makeInHand;
 import static theTodo.util.Wiz.returnTrulyRandomPrediCardInCombat;
 

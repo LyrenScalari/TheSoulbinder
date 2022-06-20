@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.NirvanaPower;
 import theTodo.cards.AbstractEasyCard;
 
-import static theTodo.TodoMod.makeID;
+import static theTodo.SoulbinderMod.makeID;
 import static theTodo.util.Wiz.applyToSelfTemp;
 
 public class TemporaryPowerDemo extends AbstractEasyCard {

@@ -5,8 +5,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import theTodo.util.TexLoader;
 
-import static theTodo.TodoMod.makeRelicPath;
-import static theTodo.TodoMod.modID;
+import static theTodo.SoulbinderMod.makeRelicPath;
+import static theTodo.SoulbinderMod.modID;
 
 public abstract class AbstractEasyRelic extends CustomRelic {
     public AbstractCard.CardColor color;

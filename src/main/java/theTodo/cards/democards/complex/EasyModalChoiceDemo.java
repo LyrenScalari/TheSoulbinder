@@ -11,7 +11,7 @@ import theTodo.cards.EasyModalChoiceCard;
 
 import java.util.ArrayList;
 
-import static theTodo.TodoMod.makeID;
+import static theTodo.SoulbinderMod.makeID;
 import static theTodo.util.Wiz.*;
 
 public class EasyModalChoiceDemo extends AbstractEasyCard {

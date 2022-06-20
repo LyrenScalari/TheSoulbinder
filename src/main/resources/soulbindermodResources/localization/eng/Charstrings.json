@@ -1,0 +1,13 @@
+{
+  "${ModID}:TheSoulbinder": {
+    "NAMES": [
+      "The Soulbinder",
+      "the Soulbinder"
+    ],
+    "TEXT": [
+      "A draconic Sorceress whom died long ago, Risen to fight with the wrath of death itself.",
+      "NL TODO: Change this text",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~Sister,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  }
+}
