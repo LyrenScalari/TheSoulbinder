@@ -5,16 +5,29 @@
   },
   "${ModID}:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! [soulbindermod:BlockIcon]"
+    "DESCRIPTION": "Gain !B! [soulbindermod:BlockIcon] ."
   },
   "${ModID}:Absorb": {
     "NAME": "Absorb",
-    "DESCRIPTION": "Lose !M! HP and increase this loss by !${ModID}:m2! this combat. NL Deal !D! [soulbindermod:SyphonIcon] damage."
+    "DESCRIPTION": "${ModID}:Drain !M!. NL Deal !D! [soulbindermod:SyphonIcon] damage."
   },
   "${ModID}:BoneSculpt": {
     "NAME": "Bone Sculpt",
-    "DESCRIPTION": "soulbindermod:Summon a soulbindermod:Skeleton"
+    "DESCRIPTION": "${ModID}:Summon a ${ModID}:Skeleton"
   },
+  "${ModID}:ScapeGoat": {
+    "NAME": "Scapegoat",
+    "DESCRIPTION": "Give your ${ModID}:Defender or a random Minion if you have none !B! [soulbindermod:BlockIcon] and !M! ${ModID}:Defender"
+  },
+  "${ModID}:CorpseJar": {
+    "NAME": "Corpse Jar",
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Summon a ${ModID}:Crypt_Spider"
+  },
+  "${ModID}:Lifelink": {
+    "NAME": "Lifelink",
+    "DESCRIPTION": "${ModID}:Drain !M!. NL Gain !B! [soulbindermod:BlockIcon] . NL When Attacked this turn, Deal !${ModID}:m2! [soulbindermod:SyphonIcon] damage to Enemy."
+  },
+
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amounts, One Power",
     "DESCRIPTION": "At start of turn, gain !M! Strength and 1 Dexterity."

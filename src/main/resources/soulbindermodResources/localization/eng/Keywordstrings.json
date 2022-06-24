@@ -16,12 +16,30 @@
     "DESCRIPTION": "#yUndead, Weak and fragile minions capable of taking blows for you and dealing damage NL HP - #b6 NL Pow - #b4 NL Block - #b4"
   },
   {
+    "PROPER_NAME": "Crypt Spider",
+    "NAMES": [
+      "crypt spider",
+      "Crypt Spider",
+      "crypt_spider",
+      "Crypt_Spider"
+    ],
+    "DESCRIPTION": "#yUndead, Infected Arachnids that mindlessly shamble forth their venomous attacks wreck havoc on the living. NL HP - #b25 NL Pow - #b6"
+  },
+  {
     "PROPER_NAME": "Syphon",
     "NAMES": [
       "syphon",
       "Syphon"
     ],
     "DESCRIPTION": "Syphon damage restores HP equal to the power of the attack."
+  },
+  {
+    "PROPER_NAME": "Drain X",
+    "NAMES": [
+      "drain",
+      "Drain"
+    ],
+    "DESCRIPTION": "Lose X HP as a cost to play this card, then increase X by #b1 this combat."
   },
   {
     "PROPER_NAME": "Souls",
@@ -31,6 +49,32 @@
       "soul",
       "Soul"
     ],
-    "DESCRIPTION": "#ySouls are gathered by slaying non-Minion enemies and Grant #b3 additional Max HP while stored are used for many powerful effects the Soulbinders Lichdom permits, including resurrecting on the spot Healing to half your max HP."
+    "DESCRIPTION": "#ySouls are gathered by slaying non-Minion enemies and stored within your #ySoul #yGem"
+  },
+  {
+    "PROPER_NAME": "Soul Gem",
+    "NAMES": [
+      "soul gem",
+      "Soul Gem",
+      "soul_gem",
+      "Soul_Gem"
+    ],
+    "DESCRIPTION": "#ySouls are stored in your #ySoul #yGem while stored they provide #b3 additional Max HP. NL Instead of dying, stored souls are spent to heal 9 HP each, up to half your Max HP."
+  },
+  {
+    "PROPER_NAME": "No Minions",
+    "NAMES": [
+      "No Minions",
+      "No_Minions"
+    ],
+    "DESCRIPTION": "I need a #rMinion to play this."
+  },
+  {
+    "PROPER_NAME": "Defender",
+    "NAMES": [
+      "defender",
+      "Defender"
+    ],
+    "DESCRIPTION": "#yMinions with #yDefender will take damage instead of you, #yDefender is reduced by #b1 when attacked."
   }
 ]

@@ -42,7 +42,9 @@ public class SoulbinderMod implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        EditCharactersSubscriber {
+        EditCharactersSubscriber,
+        OnStartBattleSubscriber,
+PostBattleSubscriber{
 
     public static final String modID = "soulbindermod"; //TODO: Change this.
 
@@ -55,7 +57,6 @@ public class SoulbinderMod implements
 
     public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
     private static boolean renderSoulsCounter = false;
-    public static final Texture soulIcon = ImageMaster.loadImage("soulbindermodResources/images/ui/Soul.png");
     public static SoulsCounter soulsCounter;
     public static final String SHOULDER1 = modID + "Resources/images/char/mainChar/shoulder.png";
     public static final String SHOULDER2 = modID + "Resources/images/char/mainChar/shoulder2.png";
@@ -71,6 +72,7 @@ public class SoulbinderMod implements
     private static final String CARD_ENERGY_L = modID + "Resources/images/1024/energy.png";
     private static final String CHARSELECT_BUTTON = modID + "Resources/images/charSelect/charButton.png";
     private static final String CHARSELECT_PORTRAIT = modID + "Resources/images/charSelect/charBG.png";
+    private static int reloadSouls;
 
     public SoulbinderMod() {
         BaseMod.subscribe(this);
@@ -132,16 +134,20 @@ public class SoulbinderMod implements
         CustomIconHelper.addCustomIcon(SyphonIcon.get());
     }
     public void receivePostInitialize() {
-        soulsCounter = new SoulsCounter(soulIcon);
+        soulsCounter = new SoulsCounter( ImageMaster.loadImage("soulbindermodResources/images/ui/Soul.png"));
     }
     public static boolean getSoulsRender(){
         if (CardCrawlGame.dungeon != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             if (renderSoulsCounter) {
-                soulsCounter = new SoulsCounter(soulIcon);
+                if (soulsCounter == null) {
+                    soulsCounter = new SoulsCounter(ImageMaster.loadImage("soulbindermodResources/images/ui/Soul.png"));
+                }
                 return true;
             } else if (SoulsField.Souls.get(AbstractDungeon.player) > 0 || AbstractDungeon.player.chosenClass == TheSoulbinder.Enums.THE_SOULBINDER) {
                 renderSoulsCounter = true;
-                soulsCounter = new SoulsCounter(soulIcon);
+                if (soulsCounter == null) {
+                    soulsCounter = new SoulsCounter(ImageMaster.loadImage("soulbindermodResources/images/ui/Soul.png"));
+                }
                 return true;
             }
         }
@@ -189,5 +195,16 @@ public class SoulbinderMod implements
                 BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        reloadSouls = SoulsField.Souls.get(AbstractDungeon.player);
+        SoulsField.Souls.set(AbstractDungeon.player,reloadSouls);
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        reloadSouls = SoulsField.Souls.get(AbstractDungeon.player);
     }
 }

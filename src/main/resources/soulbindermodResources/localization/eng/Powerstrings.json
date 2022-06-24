@@ -26,5 +26,18 @@
     "DESCRIPTIONS": [
       "When this dies while Defending any excess damage will be transferred to the Summoner."
     ]
+  },
+  "${ModID}:SummoningSickness": {
+    "NAME": "Summoning Sickness",
+    "DESCRIPTIONS": [
+      "Minions cannot act the turn they are summoned."
+    ]
+  },
+  "${ModID}:LifeLinkPower": {
+    "NAME": "Undead",
+    "DESCRIPTIONS": [
+      " Will be dealt #b",
+      " [soulbindermod:SyphonIcon] damage when attacked"," [soulbindermod:SyphonIcon] damage when attacked"," This turn"
+    ]
   }
 }

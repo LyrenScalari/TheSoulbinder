@@ -99,6 +99,7 @@ public class TheSoulbinder extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add(TodoItem.ID);
+        retVal.add(LichesPhylactery.ID);
         return retVal;
     }
 

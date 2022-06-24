@@ -4,10 +4,11 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.patches.NeutralPowertypePatch;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,62 +16,59 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import hlysine.friendlymonsters.monsters.AbstractFriendlyMonster;
 import hlysine.friendlymonsters.utils.MinionUtils;
-import hlysine.friendlymonsters.utils.MonsterIntentUtils;
 import theTodo.Minions.AbstractUndeadMonster;
 import theTodo.SoulbinderMod;
 import theTodo.powers.AbstractEasyPower;
 import theTodo.util.TexLoader;
 
+import static com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect.*;
 import static theTodo.SoulbinderMod.makePowerPath;
 
-public class ProtectedPower extends AbstractEasyPower implements CloneablePowerInterface, NonStackablePower {
+public class LifeLinkPower extends AbstractEasyPower implements CloneablePowerInterface, NonStackablePower {
     public AbstractCreature source;
 
-    public static final String POWER_ID = SoulbinderMod.makeID("ProtectedPower");
+    public static final String POWER_ID = SoulbinderMod.makeID("LifeLinkPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    public AbstractUndeadMonster Defender;
+    public AbstractMonster Linked;
     private static final Texture tex84 = TexLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TexLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
-    public ProtectedPower(final AbstractCreature owner, final AbstractCreature source, AbstractUndeadMonster defender) {
+    public LifeLinkPower(final AbstractCreature owner, final AbstractCreature source,int amount, AbstractMonster LinkedMonster) {
         super(powerStrings.NAME, NeutralPowertypePatch.NEUTRAL,true,owner,-1);
         name = NAME;
         ID = POWER_ID;
         this.owner = owner;
         this.source = source;
-        amount = -1;
+        this.amount = amount;
         type = NeutralPowertypePatch.NEUTRAL;
         isTurnBased = true;
-        Defender = defender;
+        Linked = LinkedMonster;
         // We load those txtures here.
         this.loadRegion("heartDef");
 
         updateDescription();
     }
-
-    public void onInitialApplication() {
-        for (AbstractMonster minion : MinionUtils.getMinions(AbstractDungeon.player).monsters){
-            ((AbstractUndeadMonster) minion).clearMoves();
-            ((AbstractUndeadMonster) minion).addMoves();
-        }
+    public void atStartOfTurn() {
+        addToTop(new RemoveSpecificPowerAction(AbstractDungeon.player,owner,this));
     }
-    public int onAttackedToChangeDamage(DamageInfo info, int damageAmount) {
-        if (damageAmount > 0) {
-            this.addToTop(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
-            this.addToTop(new DamageAction(Defender,info));
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner) {
+            this.flash();
+            this.addToTop(new DamageAction(Linked, new DamageInfo(this.owner, this.amount, DamageInfo.DamageType.THORNS), SLASH_HORIZONTAL, true));
+            addToTop(new HealAction(owner,owner,amount));
         }
-        return 0;
+
+        return damageAmount;
     }
     @Override
     public void updateDescription() {
-        if (Defender != null) {
+        if (Linked != null) {
             if (amount > 1) {
-                description = Defender.name + DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3];
-            } else description = Defender.name + DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + DESCRIPTIONS[3];
+                description = Linked.name + DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3];
+            } else description = Linked.name + DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + DESCRIPTIONS[3];
         } else {
             if (amount > 1) {
                 description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3];
@@ -81,6 +79,6 @@ public class ProtectedPower extends AbstractEasyPower implements CloneablePowerI
 
     @Override
     public AbstractPower makeCopy() {
-        return new ProtectedPower(owner, source, Defender);
+        return new LifeLinkPower(owner, source,amount, Linked);
     }
 }

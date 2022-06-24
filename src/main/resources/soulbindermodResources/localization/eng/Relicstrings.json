@@ -7,10 +7,10 @@
     ]
   },
   "${ModID}:LichesPhylactery": {
-    "NAME": "Liches Phylactery",
+    "NAME": "Lich's Phylactery",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      "When you would die, lose a #y${ModID}:Soul instead and heal to half your max HP."
+      "When you gain the first #y${ModID}:Soul each combat gain #b3 #yTemporary_HP"
     ]
   }
 }

@@ -34,7 +34,7 @@ public class RenderSoulsCounter {
 
         @SpirePatch(clz = EnergyPanel.class, method = "update")
         public static class UpdatePatch{
-            public static void Prefix(){
+            public static void Prefix(EnergyPanel __instance){
                 // Only update when rendering elements counter
                 if (getSoulsRender()) {
                     updateSoulsCounter();

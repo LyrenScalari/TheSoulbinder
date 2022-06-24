@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hlysine.friendlymonsters.monsters.AbstractFriendlyMonster;
 import hlysine.friendlymonsters.utils.MinionUtils;
 import theTodo.Minions.AbstractUndeadMonster;
+import theTodo.powers.SoulbinderPowerz.SummoningSickness;
 import theTodo.powers.SoulbinderPowerz.UndeadPower;
 
 import java.util.ArrayList;
@@ -27,7 +28,12 @@ public class SummonUndeadAction extends AbstractGameAction {
         if (this.duration == Settings.ACTION_DUR_FAST) {
             if (MinionUtils.getMinions(AbstractDungeon.player).monsters.size() < 5){
                 MinionUtils.addMinion(AbstractDungeon.player, undeadMonster);
+                undeadMonster.setTakenTurn(true);
                 addToTop(new ApplyPowerAction(undeadMonster,undeadMonster,new UndeadPower(undeadMonster)));
+                if (undeadMonster.PersonalEffect != null){
+                    addToTop(new ApplyPowerAction(undeadMonster,undeadMonster,undeadMonster.PersonalEffect));
+                }
+                addToTop(new ApplyPowerAction(undeadMonster,undeadMonster,new SummoningSickness(undeadMonster)));
             } else {
                 List<AbstractMonster> duplicates = new ArrayList<>();
                 ArrayList<AbstractMonster> HoardResolve = new ArrayList(MinionUtils.getMinions(AbstractDungeon.player).monsters);
