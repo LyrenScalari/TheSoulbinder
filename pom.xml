@@ -54,11 +54,18 @@
             <systemPath>${Steam.path}/workshop/content/646570/1609158507/StSLib.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>friendlymonsters</groupId>
-            <artifactId>FriendlyMonsters</artifactId>
-            <version>1.0.1</version>
+            <groupId>downfall</groupId>
+            <artifactId>Downfall</artifactId>
+            <version>4.1.16</version>
             <scope>system</scope>
-            <systemPath>${Steam.path}/workshop/content/646570/2816293692/FriendlyMonsters.jar</systemPath>
+            <systemPath>${Steam.path}/workshop/content/646570/1610056683/Downfall.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>cardaugments</groupId>
+            <artifactId>CardAugments</artifactId>
+            <version>0.0.6</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/common/SlayTheSpire/mods/CardAugments.jar</systemPath>
         </dependency>
     </dependencies>
 

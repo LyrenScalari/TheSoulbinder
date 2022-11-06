@@ -47,4 +47,9 @@ public class ExampleTwoAmountPower extends AbstractEasyPower implements OnReceiv
     public void updateDescription() {
         description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount2 + DESCRIPTIONS[2];
     }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new ExampleTwoAmountPower(owner,amount,amount2);
+    }
 }

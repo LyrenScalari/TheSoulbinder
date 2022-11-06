@@ -1,5 +1,6 @@
 package theTodo.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -39,5 +40,10 @@ public class LosePowerPower extends AbstractEasyPower {
         } else {
             description = "At the end of your turn, lose #b" + amount + " " + powerToLose.name + ".";
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new LosePowerPower(owner,powerToLose,amount);
     }
 }

@@ -3,7 +3,12 @@ package theTodo.cards;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.CommonKeywordIconsField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -11,14 +16,22 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.ExceptionHandler;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theTodo.Patches.SoulsBarrierPatches.SoulsField;
 import theTodo.TheSoulbinder;
 import theTodo.util.CardArtRoller;
+import theTodo.util.TypeEnergyHelper;
 
 import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.Map;
 
 import static theTodo.SoulbinderMod.*;
 import static theTodo.util.Wiz.atb;
@@ -41,9 +54,15 @@ public abstract class AbstractEasyCard extends CustomCard {
     private float rotationTimer = 0;
     private int previewIndex;
     protected ArrayList<AbstractCard> cardToPreview = new ArrayList<>();
-
+    public EnumMap<TypeEnergyHelper.Mana, Integer> energyCosts = new EnumMap<>(TypeEnergyHelper.Mana.class);
+    protected int[] elementCost = new int[8];
     private boolean needsArtRefresh = false;
-
+    private static Texture Bloodcast, Soulshatter;
+    public Color renderColor = Color.WHITE.cpy();
+    public static boolean alwaysFreeToCast = false;
+    public boolean freeManaOnce = false;
+    public static boolean alwaysFreeToShatter = false;
+    public boolean freeShatterOnce = false;
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, TheSoulbinder.Enums.SOULBINDER_COLOR);
     }
@@ -56,7 +75,7 @@ public abstract class AbstractEasyCard extends CustomCard {
         name = originalName = cardStrings.NAME;
         initializeTitle();
         initializeDescription();
-
+        CommonKeywordIconsField.useIcons.set(this,true);
         if (textureImg.contains("ui/missing.png")) {
             if (CardLibrary.getAllCards() != null && !CardLibrary.getAllCards().isEmpty()) {
                 CardArtRoller.computeCard(this);
@@ -247,5 +266,86 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     protected void upSecondDamage(int x) {
         upgradeSecondDamage(x);
+    }
+    public int[] getManaCost(){ return elementCost;}
+    public static void renderManaCost(AbstractEasyCard card, SpriteBatch sb){
+        int hasEnoughHealth = TypeEnergyHelper.getManaByEnum(TypeEnergyHelper.Mana.Health);
+        int hasEnoughSoul = TypeEnergyHelper.getManaByEnum(TypeEnergyHelper.Mana.Soul);
+        float drawX = card.current_x - 256.0F;
+        float drawY = card.current_y - 256.0F;
+        boolean loop1 = false;
+        boolean loop2 = false;
+        if(Bloodcast == null){
+            Bloodcast = ImageMaster.loadImage("soulbindermodResources/images/ui/Bloodcast512.png");
+            Soulshatter = ImageMaster.loadImage("soulbindermodResources/images/ui/Soulshatter512.png");
+        }
+
+        if(!card.isLocked && card.isSeen) {
+            float yOffset = 30.0F * Settings.scale * card.drawScale;
+            int counter = 0;
+            //logger.info("attempting render");
+            for(Map.Entry<TypeEnergyHelper.Mana,Integer> e : card.energyCosts.entrySet()){
+                TypeEnergyHelper.Mana mana = e.getKey();
+                Texture tex;
+                switch (mana) {
+                    case Health:
+                        tex = Bloodcast;
+                        break;
+                    case Soul:
+                        tex = Soulshatter;
+                        break;
+                    default:
+                        throw new IllegalStateException("Unexpected mana type");
+                }
+                if (card.energyCosts.get(mana) != 0) {
+                    Vector2 offset = new Vector2(0, -yOffset * counter);
+                    offset.rotate(card.angle);
+                    card.renderHelper(sb, card.renderColor, tex, drawX + offset.x, drawY + offset.y);
+                    String msg;
+                    msg = card.energyCosts.get(mana) + "";
+
+                    Color costColor = Color.WHITE.cpy();
+                    if (AbstractDungeon.player != null && AbstractDungeon.player.hand.contains(card)){
+                        if (mana == TypeEnergyHelper.Mana.Health) {
+                            if (AbstractDungeon.player.currentHealth <= hasEnoughHealth) {
+                                costColor = Color.RED.cpy();
+                            } else if (alwaysFreeToCast || card.freeManaOnce) {
+                                msg = "0";
+                                costColor = Color.GREEN.cpy();
+                            }
+                        }
+                        else{
+                            if (hasEnoughSoul < SoulsField.Souls.get(AbstractDungeon.player)) {
+                                costColor = Color.RED.cpy();
+                            } else if (alwaysFreeToShatter || card.freeShatterOnce) {
+                                msg = "0";
+                                costColor = Color.GREEN.cpy();
+                            }
+                        }
+                    }
+                        FontHelper.renderRotatedText(sb, getElementFont(card), msg, card.current_x,
+                                card.current_y, -136.0F * card.drawScale * Settings.scale,
+                                139.0F * card.drawScale * Settings.scale - yOffset * counter, card.angle,
+                                true, costColor);
+                    counter++;
+                }
+            }
+        }
+    }
+    private void renderHelper(SpriteBatch sb, Color color, Texture img, float drawX, float drawY) {
+        sb.setColor(color);
+        try {
+            sb.draw(img, drawX, drawY,
+                    256.0F, 256.0F, 512.0F, 512.0F,
+                    this.drawScale * Settings.scale, this.drawScale * Settings.scale,
+                    this.angle, 0, 0, 512, 512, false, false);
+
+        } catch (Exception e) {
+            ExceptionHandler.handleException(e, logger);
+        }
+    }
+    public static BitmapFont getElementFont(AbstractCard card) {
+        FontHelper.cardEnergyFont_L.getData().setScale(card.drawScale * 0.75f);
+        return FontHelper.cardEnergyFont_L;
     }
 }

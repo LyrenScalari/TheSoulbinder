@@ -1,11 +1,17 @@
 package theTodo.cards;
 
+import basemod.helpers.CardModifierManager;
 import basemod.helpers.TooltipInfo;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theTodo.Icons.BlockIcon;
+import theTodo.Icons.VenomIcon;
+import theTodo.cardmods.AddIconToDescriptionMod;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +30,7 @@ public class Defend extends AbstractEasyCard {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
         baseBlock = 5;
         tags.add(CardTags.STARTER_DEFEND);
+        CardModifierManager.addModifier(this,new AddIconToDescriptionMod(AddIconToDescriptionMod.BLOCK, BlockIcon.get()));
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

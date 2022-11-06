@@ -1,19 +1,10 @@
 package theTodo.relics;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
-import com.evacipated.cardcrawl.mod.stslib.relics.OnPlayerDeathRelic;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MinionPower;
-import theTodo.Minions.Skeleton;
-import theTodo.Patches.SoulsField;
 import theTodo.TheSoulbinder;
-import theTodo.actions.SummonUndeadAction;
 
 import static theTodo.SoulbinderMod.makeID;
 

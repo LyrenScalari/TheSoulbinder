@@ -5,73 +5,205 @@
   },
   "${ModID}:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! [soulbindermod:BlockIcon] ."
+    "DESCRIPTION": "Gain !B! ."
   },
   "${ModID}:Absorb": {
     "NAME": "Absorb",
-    "DESCRIPTION": "${ModID}:Drain !M!. NL Deal !D! [soulbindermod:SyphonIcon] damage."
+    "DESCRIPTION": "${ModID}:Bloodcast !M!. NL Deal !D! damage. NL Gain !${ModID}:m2! [soulbindermod:TempHPIcon] NL ${ModID}:Coalesce ${ModID}:Fangs",
+    "EXTENDED_DESCRIPTION": ["I lack the #rHealth to play this card."]
   },
   "${ModID}:BoneSculpt": {
     "NAME": "Bone Sculpt",
-    "DESCRIPTION": "${ModID}:Summon a ${ModID}:Skeleton"
+    "DESCRIPTION": "Exhaust !M! card in your Hand. NL add !M! *Skeleton to your hand.",
+    "UPGRADE_DESCRIPTION": "Exhaust !M! card in your Hand. NL add !M! *Skeletons+ to your hand.",
+    "EXTENDED_DESCRIPTION": ["Choose a card to Exhaust"]
   },
-  "${ModID}:ScapeGoat": {
-    "NAME": "Scapegoat",
-    "DESCRIPTION": "Give your ${ModID}:Defender or a random Minion if you have none !B! [soulbindermod:BlockIcon] and !M! ${ModID}:Defender"
+  "${ModID}:BoneBurst": {
+    "NAME": "Bone Burst",
+    "DESCRIPTION": "Evoke your next ${ModID}:Bones."
   },
   "${ModID}:CorpseJar": {
     "NAME": "Corpse Jar",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Summon a ${ModID}:Crypt_Spider"
+    "DESCRIPTION": "Deal !D! damage. NL Add an ${ModID}:Entombed *Corpse *Spider to your exhaust pile."
+  },
+  "${ModID}:FlashFreeze": {
+    "NAME": "Flash Freeze",
+    "DESCRIPTION": "Apply !M! . NL Apply !${ModID}:m2! . NL Exhaust."
+  },
+  "${ModID}:Ponder": {
+    "NAME": "Wintry Gaze",
+    "DESCRIPTION": "Scry !M!. NL Draw a card ALL enemies gain [soulbindermod:RimeIcon] equal to thrice it's cost."
+  },
+  "${ModID}:FrozenTouch": {
+    "NAME": "Frozen Touch",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${ModID}:ToxicSplash": {
+    "NAME": "Toxic Splash",
+    "DESCRIPTION": "Deal !D! damage."
   },
   "${ModID}:Lifelink": {
-    "NAME": "Lifelink",
-    "DESCRIPTION": "${ModID}:Drain !M!. NL Gain !B! [soulbindermod:BlockIcon] . NL When Attacked this turn, Deal !${ModID}:m2! [soulbindermod:SyphonIcon] damage to Enemy."
+    "NAME": "Necromantic Ritual",
+    "DESCRIPTION": "${ModID}:Bloodcast !M!. NL Evoke your next orb. NL ${ModID}:Entomb a random ${ModID}:Undead card",
+    "EXTENDED_DESCRIPTION": ["I lack the #rHealth to play this card."]
+  },
+  "${ModID}:GraveDigger": {
+    "NAME": "Grave Digger",
+    "DESCRIPTION": "${ModID}:Entomb a card in your hand.",
+    "EXTENDED_DESCRIPTION": ["Choose a card to Entomb"]
+  },
+  "${ModID}:GraveShell": {
+    "NAME": "Grave Shell",
+    "DESCRIPTION": "Gain !B! . NL ${ModID}:Reclaim !M! if it's ${ModID}:Undead Gain !B! ."
+  },
+  "${ModID}:SigninBlood": {
+    "NAME": "Signed in Blood",
+    "DESCRIPTION": "${ModID}:Bloodcast !${ModID}:m2!. NL Draw !M! cards.",
+    "EXTENDED_DESCRIPTION": ["I lack the #rHealth to play this card."]
+  },
+  "${ModID}:CrimsonHomunculi": {
+    "NAME": "Crimson Homunculi",
+    "DESCRIPTION": "${ModID}:Bloodcast !M!. NL Create and ${ModID}:Entomb !${ModID}:m2! *Flesh *Golems.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Bloodcast !M!. NL Add !${ModID}:m2! ${ModID}:Entombed *Flesh *Golems+ to your exhaust pile.",
+    "EXTENDED_DESCRIPTION": ["I lack the #rHealth to play this card."]
+  },
+  "${ModID}:Bloodcraft": {
+    "NAME": "Bloodcraft",
+    "DESCRIPTION": "Evoke your next ${ModID}:Fangs twice. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Evoke your next ${ModID}:Fangs thrice. NL Exhaust",
+    "EXTENDED_DESCRIPTION": ["I lack the #rHealth to play this card."]
+  },
+  "${ModID}:GlacialAdvance": {
+    "NAME": "Glacial Advance",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Shuffle an *Ice *Phantom into your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Shuffle an *Ice *Phantom+ into your draw pile.",
+    "EXTENDED_DESCRIPTION": ["Choose a card to Entomb"]
+  },
+  "${ModID}:Bloodplague": {
+    "NAME": "Blood Plague",
+    "DESCRIPTION": "${ModID}:Bloodcast !M!. NL Deal !D! damage to a random enemy [soulbindermod:BloodcastIcon] times.",
+    "EXTENDED_DESCRIPTION": ["I lack the #rHealth to play this card."]
+  },
+  "${ModID}:Enfeeble": {
+    "NAME": "Enfeeble",
+    "DESCRIPTION": "Deal !D! damage . NL Apply !M! . NL Exhaust."
+  },
+  "${ModID}:ItLives": {
+    "NAME": "It Lives!",
+    "DESCRIPTION": "${ModID}:Reclaim !M!. NL Add a *Skeleton to your hand, it costs 0 this turn. NL ${ModID}:Bury : Gain [E] [E]",
+    "UPGRADE_DESCRIPTION": "${ModID}:Reclaim !M!. NL Add a *Skeleton+ to your hand, it costs 0 this turn. NL ${ModID}:Bury : Gain [E] [E] [E]",
+    "EXTENDED_DESCRIPTION": ["Choose a card to send to the discard pile it gains Exile"]
+  },
+  "${ModID}:SoulTap": {
+    "NAME": "Soul Tap",
+    "DESCRIPTION": "Draw !M! cards. NL Gain *Temporary ${ModID}:Netherworld_Resonance equal to your soulbindermod:Souls."
+  },
+  "${ModID}:ChainsofIce": {
+    "NAME": "Chains of Ice",
+    "DESCRIPTION": "Enemy loses Strength equal to their [soulbindermod:RimeIcon] . NL ${ModID}:Exile"
+  },
+  "${ModID}:Soulsplitter": {
+    "NAME": "Soulsplitter",
+    "DESCRIPTION": "${ModID}:Reclaim !M! and add a copy of it to your hand with ${ModID}:Exile.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Reclaim !M! and add copies of them to your hand with ${ModID}:Exile.",
+    "EXTENDED_DESCRIPTION": ["Choose a card to send to the discard pile it gains Exile and add a copy of to your hand", "I need an #rexhausted card for this card."]
+  },
+  "${ModID}:Necroblast": {
+    "NAME": "Necroblast",
+    "DESCRIPTION": "${ModID}:Exile !M! card from your exhaust pile, Deal damage and Gain [soulbindermod:BlockIcon] equal to twice its damage or [soulbindermod:BlockIcon] (whichever is larger).",
+    "UPGRADE_DESCRIPTION":"${ModID}:Reclaim !M!, Deal damage and Gain [soulbindermod:BlockIcon] equal to twice its damage or [soulbindermod:BlockIcon] (whichever is larger).",
+    "EXTENDED_DESCRIPTION": ["Choose a card to Exile","I need an #rexhausted card for this card.","I need an exhausted card that #rdeals #rdamage or #rgains #rBlock for this card ."]
+  },
+  "${ModID}:Necropotence": {
+    "NAME": "Necropotence",
+    "DESCRIPTION": "Remove your next ${ModID}:Coalesced orb to Gain !M! ${ModID}:Netherworld_Resonance",
+    "UPGRADE_DESCRIPTION": "Evoke your next ${ModID}:Coalesced orb to Gain !M! ${ModID}:Netherworld_Resonance"
+  },
+  "${ModID}:Soulburst": {
+    "NAME": "Soulburst",
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust a card in your hand.",
+    "EXTENDED_DESCRIPTION": ["Choose a card to Exhaust"]
+  },
+  "${ModID}:DrainingFog": {
+    "NAME": "Draining Fog",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL soulbindermod:Exploit : Gain !M! [soulbindermod:TempHPIcon]",
+    "EXTENDED_DESCRIPTION": ["I lack the #rHealth to play this card."]
+  },
+  "${ModID}:HowlingBlast": {
+    "NAME": "Howling Blast",
+    "DESCRIPTION": "Apply !${ModID}:m2! [soulbindermod:RimeIcon] to ALL enemies. NL soulbindermod:Exploit : Apply !M! [soulbindermod:FrostFeverIcon]"
+  },
+  "${ModID}:WailingDeath": {
+    "NAME": "Echo of Eternity",
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Exile !M! card from your exhaust pile and play a Copy of it.",
+    "EXTENDED_DESCRIPTION": ["Choose a card to Exile and play a copy of."]
+  },
+  "${ModID}:UnholyStrike": {
+    "NAME": "Unholy Strike",
+    "DESCRIPTION": "Deal !D! damage. ${ModID}:Reclaim and Draw !M! NL soulbindermod:Exploit : Apply !${ModID}:m2! [soulbindermod:WeakIcon] .",
+    "EXTENDED_DESCRIPTION": ["Choose a card to send to the discard pile it gains Exile"]
+  },
+  "${ModID}:NetherGate": {
+    "NAME": "Netherworld Gate",
+    "DESCRIPTION": "Gain !M! [soulbindermod:SoulBarrierIcon] . NL Play and exhaust the top card of your draw pile twice. NL ${ModID}:Exile",
+    "UPGRADE_DESCRIPTION": "Gain !M! [soulbindermod:SoulBarrierIcon] . NL Play and exhaust the top card of your draw pile !M! times. NL ${ModID}:Exile",
+    "EXTENDED_DESCRIPTION": ["Entomb"]
+  },
+  "${ModID}:NetherWard": {
+    "NAME": "Nether Ward",
+    "DESCRIPTION": "Gain !B! [soulbindermod:BlockIcon] . NL Gain !M! [soulbindermod:SoulBarrierIcon]",
+    "EXTENDED_DESCRIPTION": ["Entomb"]
+  },
+  "${ModID}:Soulfire": {
+    "NAME": "Soulfire",
+    "DESCRIPTION": "Deal !D! damage. NL This cards damage is increased by your soulbindermod:Souls. NL ${ModID}:Exile",
+    "EXTENDED_DESCRIPTION": ["Entomb"]
+  },
+  "${ModID}:SnapFreeze": {
+    "NAME": "Snap Freeze",
+    "DESCRIPTION": "After you gain block from [soulbindermod:RimeIcon] , deal !M! damage to a random enemy",
+    "EXTENDED_DESCRIPTION": ["Entomb"]
   },
 
-  "${ModID}:ExampleTwoAmountPowerCard": {
-    "NAME": "Two Amounts, One Power",
-    "DESCRIPTION": "At start of turn, gain !M! Strength and 1 Dexterity."
+
+
+  "${ModID}:RemorselessWinter": {
+    "NAME": "Remorseless Winter",
+    "DESCRIPTION": "[soulbindermod:FrostIcon] damage is increased by the targets [soulbindermod:RimeIcon] ",
+    "EXTENDED_DESCRIPTION": ["Entomb"]
   },
-  "${ModID}:TemporaryPowerDemo": {
-    "NAME": "Auto-Generated Temporary Power",
-    "DESCRIPTION": "Whenever you Scry this turn, gain !M! Block."
+  "${ModID}:TomeofOrigination": {
+    "NAME": "Tome of Origination",
+    "DESCRIPTION": "At the start of your turn lose !M! HP, and draw a card it costs 0 this combat.",
+    "EXTENDED_DESCRIPTION": ["Entomb"]
   },
-  "${ModID}:InlinePowerDemo": {
-    "NAME": "Inline Power",
-    "DESCRIPTION": "Strikes deal !M! more damage. NL At the end of your turn, gain !M! Block."
+
+  "${ModID}:PartTheVeil": {
+    "NAME": "Part the Veil",
+    "DESCRIPTION": "${ModID}:Bloodcast !M!. NL Play a copy of a card ${ModID}:Exiled this combat. NL This cards ${ModID}:Bloodcast increases permanently NL ${ModID}:Exile",
+    "EXTENDED_DESCRIPTION": ["I lack the #rHealth to play this card."]
   },
-  "${ModID}:SelectCardsPlusCardMods": {
-    "NAME": "Card Parsing, Card Selection, Card Mods",
-    "DESCRIPTION": "Choose from 1 of 3 cost 0 cards from any class. NL Add it into your hand. NL It gains Ethereal and Exhaust."
+  "${ModID}:Skeleton": {
+    "NAME": "Skeleton",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! [soulbindermod:BlockIcon] NL Apply !M! [soulbindermod:WeakIcon] NL ${ModID}:Bury : ${ModID}:Coalesce ${ModID}:Bones.",
+    "EXTENDED_DESCRIPTION": ["Entomb"]
   },
-  "${ModID}:InlineCardModDemo": {
-    "NAME": "Inline Card Mods",
-    "DESCRIPTION": "Add a random Strike of any color to your hand. NL Enchant it with \"Kills Spikers.\""
+  "${ModID}:CorpseSpider": {
+    "NAME": "Corpse Spider",
+    "DESCRIPTION": "Deal !D! [soulbindermod:VenomIcon] damage twice. NL ${ModID}:Bury :  ${ModID}:Coalesce ${ModID}:Bile.",
+    "EXTENDED_DESCRIPTION": ["Entomb"]
   },
-  "${ModID}:NextTurnPowerDemo": {
-    "NAME": "Auto-Generated Next Turn Power",
-    "DESCRIPTION": "Next turn, gain !M! Thorns."
+  "${ModID}:FleshGolem": {
+    "NAME": "Flesh Golem",
+    "DESCRIPTION": "Gain !B! [soulbindermod:BlockIcon] . NL Draw a card NL ${ModID}:Bury : ${ModID}:Coalesce ${ModID}:Fangs .",
+    "EXTENDED_DESCRIPTION": ["Entomb"]
   },
-  "${ModID}:MultiPreviewDemoCard": {
-    "NAME": "Multiple Previews - One Card",
-    "DESCRIPTION": "Ethereal. NL Add a random *Stinky *Watcher *Buddy into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Add a random Upgraded *Stinky *Watcher *Buddy into your hand. NL Exhaust."
+  "${ModID}:IcePhantom": {
+    "NAME": "Ice Phantom",
+    "DESCRIPTION": "Deal !D! [soulbindermod:FrostIcon] damage to ALL enemies. NL ${ModID}:Bury : ${ModID}:Coalesce ${ModID}:Ectoplasm.",
+    "EXTENDED_DESCRIPTION": ["Entomb"]
   },
-  "${ModID}:EasyXCostDemo": {
-    "NAME": "Easy X Cost",
-    "DESCRIPTION": "Deal !D! damage X times. NL Gain X Strength. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage X+1 times. NL Gain X+1 Strength. NL Exhaust."
-  },
-  "${ModID}:EasyModalChoiceDemo": {
-    "NAME": "Easy Modal Choice",
-    "DESCRIPTION": "Choose one: Draw !M! cards or gain !${ModID}:m2! Strength."
-  },
-  "${ModID}:DrawAndShiv": {
-    "NAME": "Draw and Shiv",
-    "DESCRIPTION": "Draw 1 card. NL Add 1 *Shiv into your hand."
-  },
-  "${ModID}:TwoTypesOfDamage": {
-    "NAME": "Two Types of Damage",
-    "DESCRIPTION": "Deal !D! damage. NL If you're Vulnerable, deal !${ModID}:sd! damage instead."
+  "${ModID}:EntombedModifer": {
+    "EXTENDED_DESCRIPTION": ["${ModID}:Entombed NL "]
   }
 }

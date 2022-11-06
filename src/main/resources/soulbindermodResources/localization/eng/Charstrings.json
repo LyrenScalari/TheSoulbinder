@@ -9,5 +9,15 @@
       "NL TODO: Change this text",
       "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~Sister,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
     ]
+  },
+  "${ModID}:TheSorcerer": {
+    "NAMES": [
+      "The Sorcerer",
+      "the Sorcerer"
+    ],
+    "TEXT": [
+      "A magician from a far off realm. NL Deals in Balance magic : Harmony, Symmetry in all things augments himself and his foes with magical energies.",
+      " NL Time to right the Scales,",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~Brother,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"]
   }
 }

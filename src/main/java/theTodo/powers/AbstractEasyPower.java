@@ -1,5 +1,6 @@
 package theTodo.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -14,7 +15,7 @@ import theTodo.util.TexLoader;
 
 import static theTodo.SoulbinderMod.makeID;
 
-public abstract class AbstractEasyPower extends AbstractPower {
+public abstract class AbstractEasyPower extends AbstractPower implements CloneablePowerInterface {
     public int amount2 = -1;
     public boolean isTwoAmount = false;
     public static Color redColor2 = Color.RED.cpy();

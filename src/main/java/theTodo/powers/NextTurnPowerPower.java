@@ -77,4 +77,9 @@ public class NextTurnPowerPower extends AbstractEasyPower {
             description = "Next turn, gain #b" + powerToGain.amount + " " + powerToGain.name + ".";
         }
     }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new NextTurnPowerPower(owner,powerToGain);
+    }
 }

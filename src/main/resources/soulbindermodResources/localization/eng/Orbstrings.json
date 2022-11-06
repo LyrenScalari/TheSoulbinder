@@ -1,0 +1,52 @@
+{
+  "theDefault:DefaultOrb": {
+    "NAME": "Default Orb",
+    "DESCRIPTION": [
+      "#yPassive: At the start of your turn, draw #b",
+      " card.",
+      " cards.",
+      " NL #yEvoke: Deal #b",
+      " damage to all enemies."
+    ]
+  },
+  "${ModID}:Bones": {
+    "NAME": "Bones",
+    "DESCRIPTION": [
+      "#yPassive: At the start of your turn, deal #b",
+      " damage to a random enemy.",
+      "",
+      " NL #yEvoke: gain #b",
+      "[soulbindermod:BlockIcon] [REMOVE_SPACE] ."
+    ]
+  },
+  "${ModID}:Bile": {
+    "NAME": "Bile",
+    "DESCRIPTION": [
+      "#yPassive: At the start of your turn, apply #b",
+      " [soulbindermod:PoisonIcon] to all enemies and increase this orbs evoke power by #b1.",
+      "",
+      " NL #yEvoke: apply #b",
+      " [soulbindermod:PoisonIcon] to all enemies."
+    ]
+  },
+  "${ModID}:Fangs": {
+    "NAME": "Fangs",
+    "DESCRIPTION": [
+      "#yPassive: At the start of your turn, deal #b",
+      " damage to a random enemy gain that much [soulbindermod:TempHPIcon] [REMOVE_SPACE] .",
+      "",
+      " NL #yEvoke: deal #b",
+      " damage to a random enemy gain that much [soulbindermod:TempHPIcon] [REMOVE_SPACE] ."
+    ]
+  },
+  "${ModID}:Ecto": {
+    "NAME": "Ectoplasm",
+    "DESCRIPTION": [
+      "#yPassive: At the start of your turn, apply #b",
+      " [soulbindermod:RimeIcon] to a random enemy.",
+      "",
+      " NL #yEvoke: gain #b",
+      "[soulbindermod:BlockIcon] [REMOVE_SPACE] ."
+    ]
+  }
+}

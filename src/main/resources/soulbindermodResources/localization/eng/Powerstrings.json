@@ -7,37 +7,35 @@
       " #yDexterity."
     ]
   },
-  "${ModID}:DefenderPower": {
-    "NAME": "Defender",
+  "${ModID}:RimePower": {
+    "NAME": "Rime",
     "DESCRIPTIONS": [
-      " will take the next #b",
-      " Attack"," Attacks"," This turn instead of you"
+      "When attacked, attacker gains #b"," [soulbindermod:BlockIcon] and reduces this by #b1"
     ]
   },
-  "${ModID}:ProtectedPower": {
-    "NAME": "Protected",
+  "${ModID}:SoulbarrierPower": {
+    "NAME": "Soulbarrier",
     "DESCRIPTIONS": [
-      " is protecting you from the #b",
-      " Attack"," Attacks"," This turn"
+      "When you would lose HP lose #b"," less reduce this by #b1"
     ]
   },
-  "${ModID}:UndeadPower": {
-    "NAME": "Undead",
+  "${ModID}:FrostFeverPower": {
+    "NAME": "Frost Fever",
     "DESCRIPTIONS": [
-      "When this dies while Defending any excess damage will be transferred to the Summoner."
+      "[soulbindermod:RimeIcon] and [soulbindermod:PoisonIcon] do not reduce. each turn this reduces this by #b1"
     ]
   },
-  "${ModID}:SummoningSickness": {
-    "NAME": "Summoning Sickness",
+  "${ModID}:NetherworldResonancePower": {
+    "NAME": "Netherworld Resonance",
     "DESCRIPTIONS": [
-      "Minions cannot act the turn they are summoned."
+      "Increases the damage and #yBlock of #yUndead card and the potency of #yCoalesced orbs by #b"
     ]
   },
   "${ModID}:LifeLinkPower": {
-    "NAME": "Undead",
+    "NAME": "Life Link",
     "DESCRIPTIONS": [
       " Will be dealt #b",
-      " [soulbindermod:SyphonIcon] damage when attacked"," [soulbindermod:SyphonIcon] damage when attacked"," This turn"
+      " damage when attacked and you gain #b"," [soulbindermod:TempHPIcon] "," This turn"
     ]
   }
 }

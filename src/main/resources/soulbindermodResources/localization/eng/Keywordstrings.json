@@ -1,45 +1,53 @@
 [
   {
-    "PROPER_NAME": "Summon",
+    "PROPER_NAME": "[soulbindermod:VenomIcon] Venom",
     "NAMES": [
-      "summon",
-      "Summon"
+      "venom",
+      "Venom"
     ],
-    "DESCRIPTION": "#ySummoning an #yUndead creates a Minion to aid you in battle. When maximum minions is reached #ySummoning will cause minions of the same type will form a Hoard."
+    "DESCRIPTION": "[soulbindermod:VenomIcon] #yVenom damage applies [soulbindermod:PoisonIcon] equal to half of the unblocked damage dealt."
   },
   {
-    "PROPER_NAME": "Skeleton",
+    "PROPER_NAME": "[soulbindermod:FrostIcon] Frost",
     "NAMES": [
-      "skeleton",
-      "Skeleton"
+      "frost",
+      "Frost"
     ],
-    "DESCRIPTION": "#yUndead, Weak and fragile minions capable of taking blows for you and dealing damage NL HP - #b6 NL Pow - #b4 NL Block - #b4"
+    "DESCRIPTION": "[soulbindermod:FrostIcon] #yFrost damage applies [soulbindermod:RimeIcon] equal to half of the unblocked damage dealt."
   },
   {
-    "PROPER_NAME": "Crypt Spider",
+    "PROPER_NAME": "[soulbindermod:BloodcastIcon] Bloodcast X",
     "NAMES": [
-      "crypt spider",
-      "Crypt Spider",
-      "crypt_spider",
-      "Crypt_Spider"
-    ],
-    "DESCRIPTION": "#yUndead, Infected Arachnids that mindlessly shamble forth their venomous attacks wreck havoc on the living. NL HP - #b25 NL Pow - #b6"
-  },
-  {
-    "PROPER_NAME": "Syphon",
-    "NAMES": [
-      "syphon",
-      "Syphon"
-    ],
-    "DESCRIPTION": "Syphon damage restores HP equal to the power of the attack."
-  },
-  {
-    "PROPER_NAME": "Drain X",
-    "NAMES": [
-      "drain",
-      "Drain"
+      "bloodcast",
+      "Bloodcast"
     ],
     "DESCRIPTION": "Lose X HP as a cost to play this card, then increase X by #b1 this combat."
+  },
+  {
+    "PROPER_NAME": "Soulshatter X",
+    "NAMES": [
+      "soulshatter",
+      "Soulshatter"
+    ],
+    "DESCRIPTION": "Spend X #ySouls from your soul gem for a Bonus Effect. NL #ySoulshatter is always paid if possible."
+  },
+  {
+    "PROPER_NAME": "[soulbindermod:RimeIcon] Rime",
+    "NAMES": [
+      "rime",
+      "Rime"
+    ],
+    "DESCRIPTION": "#yRimed creatures grant [soulbindermod:BlockIcon] equal to half their [soulbindermod:RimeIcon] when attacked and [soulbindermod:RimeIcon] is reduced by #b1."
+  },
+  {
+    "PROPER_NAME": "[soulbindermod:FrostFeverIcon] Frost Fever",
+    "NAMES": [
+      "frost_fever",
+      "Frost_Fever",
+      "frost fever",
+      "Frost Fever"
+    ],
+    "DESCRIPTION": "Creatures with [soulbindermod:FrostFeverIcon] #yFrost #yFever do not have their [soulbindermod:RimeIcon] or [soulbindermod:PoisonIcon] reduced. Each turn, [soulbindermod:FrostFeverIcon] #yFrost #yFever is reduced by #b1"
   },
   {
     "PROPER_NAME": "Souls",
@@ -59,22 +67,127 @@
       "soul_gem",
       "Soul_Gem"
     ],
-    "DESCRIPTION": "#ySouls are stored in your #ySoul #yGem while stored they provide #b3 additional Max HP. NL Instead of dying, stored souls are spent to heal 9 HP each, up to half your Max HP."
+    "DESCRIPTION": "#ySouls are stored in your #ySoul #yGem. While stored #ySouls provide #b2 #ySoul #yBarrier at the start of combat. NL Gain #b1 #ySoul when a non-minion enemy dies. NL Whenever you gain a Soul, increase your Max #ySoul #yBarrier by #b3 "
   },
   {
-    "PROPER_NAME": "No Minions",
+    "PROPER_NAME": "[soulbindermod:SoulBarrierIcon] Soul Barrier",
     "NAMES": [
-      "No Minions",
-      "No_Minions"
+      "soul barrier",
+      "Soul Barrier",
+      "soul_barrier",
+      "Soul_Barrier"
     ],
-    "DESCRIPTION": "I need a #rMinion to play this."
+    "DESCRIPTION": "[soulbindermod:SoulBarrierIcon] #ySoul #yBarrier reduces HP lost. NL [soulbindermod:SoulBarrierIcon] is reduced by #b1 when you take damage."
   },
   {
-    "PROPER_NAME": "Defender",
+    "PROPER_NAME": "Netherworld Resonance",
     "NAMES": [
-      "defender",
-      "Defender"
+      "netherworld resonance",
+      "Netherworld Resonance",
+      "netherworld_resonance",
+      "Netherworld_Resonance"
     ],
-    "DESCRIPTION": "#yMinions with #yDefender will take damage instead of you, #yDefender is reduced by #b1 when attacked."
+    "DESCRIPTION": "#yNetherworld #yResonance increases the damage and Block gain of #yUndead cards and the potency of #yCoalesced orbs."
+  },
+  {
+    "PROPER_NAME": "Undead",
+    "NAMES": [
+      "undead",
+      "Undead"
+    ],
+    "DESCRIPTION": "#yUndead cards are special cards that channel orbs when #yExhausted."
+  },
+  {
+    "PROPER_NAME": "Bury",
+    "NAMES": [
+      "bury",
+      "Bury"
+    ],
+    "DESCRIPTION": "#yBury effects occur when this card enters the #yexhaust pile"
+  },
+  {
+    "PROPER_NAME": "Entomb",
+    "NAMES": [
+      "entomb",
+      "Entomb",
+      "entombed",
+      "Entombed"
+    ],
+    "DESCRIPTION": "#yEntombing a card Exhausts it. Add it to your hand the next time your draw pile is shuffled. #yEntombed cards will trigger #yBury effects instead of leaving the #yexhaust pile by other means."
+  },
+  {
+    "PROPER_NAME": "Exile",
+    "NAMES": [
+      "exile",
+      "Exile",
+      "exiled",
+      "Exiled"
+    ],
+    "DESCRIPTION": "Removed until the end of combat. Does #rNot go to the exhaust pile but can be viewed there."
+  },
+  {
+    "PROPER_NAME": "Reclaim",
+    "NAMES": [
+      "reclaim",
+      "Reclaim"
+    ],
+    "DESCRIPTION": "#yReclaiming a card sends it from the #yexhaust pile to the discard pile it #yExiles when played."
+  },
+  {
+    "PROPER_NAME": "Exploit",
+    "NAMES": [
+      "exploit",
+      "Exploit"
+    ],
+    "DESCRIPTION": "#yExploit abilities activate on the target(s) of this card if they have [soulbindermod:PoisonIcon] [REMOVE_SPACE] ."
+  },
+  {
+    "PROPER_NAME": "Bones",
+    "NAMES": [
+      "bones",
+      "Bones"
+    ],
+    "DESCRIPTION": "#yOrb: #yPassive : Deals damage to random enemies. #yEvoke : Grants [soulbindermod:BlockIcon] [REMOVE_SPACE] ."
+  },
+  {
+    "PROPER_NAME": "Bile",
+    "NAMES": [
+      "bile",
+      "Bile"
+    ],
+    "DESCRIPTION": "#yOrb: Applies [soulbindermod:PoisonIcon] to ALL enemies increasing #yEvoke power by #b1."
+  },
+  {
+    "NAMES": [
+      "swappable",
+      "Swappable"
+    ],
+    "DESCRIPTION": "Right click this card while its in your hand to Swap it to it's other side."
+  },
+  {
+    "PROPER_NAME": "Coalesce",
+    "NAMES": [
+      "coalesce",
+      "Coalesce",
+      "coalesced",
+      "Coalesced"
+    ],
+    "DESCRIPTION": "#yCoalescing an Orb creates an orb slot, fills it with an orb"
+  },
+  {
+    "PROPER_NAME": "Ectoplasm",
+    "NAMES": [
+      "ectoplasm",
+      "Ectoplasm"
+    ],
+    "DESCRIPTION": "#yOrb: #yPassive : Applies [soulbindermod:RimeIcon] to random enemies. #yEvoke : Grants [soulbindermod:BlockIcon] equal to the size of your exhaust pile."
+  },
+  {
+    "PROPER_NAME": "Fangs",
+    "NAMES": [
+      "fangs",
+      "Fangs"
+    ],
+    "DESCRIPTION": "#yOrb: #yPassive : Deals damage to random enemies and Grants [soulbindermod:TempHPIcon] [REMOVE_SPACE] ."
   }
 ]

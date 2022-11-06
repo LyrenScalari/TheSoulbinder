@@ -21,13 +21,12 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import theTodo.cards.Defend;
 import theTodo.cards.SoulbinderCards.Absorb;
 import theTodo.cards.SoulbinderCards.BoneSculpt;
+import theTodo.cards.SoulbinderCards.Tokens.Skeleton;
 import theTodo.cards.Strike;
 import theTodo.relics.LichesPhylactery;
 import theTodo.relics.TodoItem;
 
 import java.util.ArrayList;
-
-import static hlysine.friendlymonsters.utils.MinionUtils.*;
 import static theTodo.TheSoulbinder.Enums.SOULBINDER_COLOR;
 import static theTodo.SoulbinderMod.*;
 
@@ -58,10 +57,6 @@ public class TheSoulbinder extends CustomPlayer {
                 SHOULDER2,
                 CORPSE,
                 getLoadout(), 20.0F, -10.0F, 166.0F, 327.0F, new EnergyManager(3));
-
-        setBaseMinionCount(this,5);
-        setBaseMinionPowerChance(this,0);
-        setBaseMinionAttackTargetChance(this,0);
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 240.0F * Settings.scale);
     }
@@ -99,7 +94,6 @@ public class TheSoulbinder extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add(TodoItem.ID);
-        retVal.add(LichesPhylactery.ID);
         return retVal;
     }
 
@@ -117,7 +111,7 @@ public class TheSoulbinder extends CustomPlayer {
 
     @Override
     public int getAscensionMaxHPLoss() {
-        return 8;
+        return 5;
     }
 
     @Override

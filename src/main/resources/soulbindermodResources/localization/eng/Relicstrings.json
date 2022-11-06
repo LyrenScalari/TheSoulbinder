@@ -1,14 +1,14 @@
 {
   "${ModID}:TodoItem": {
     "NAME": "Guiding Lantern",
-    "FLAVOR": "TODO: make this a sweet relic.",
+    "FLAVOR": "The eerie green glow marks the path through the erebus only visible to the dead.",
     "DESCRIPTIONS": [
-      "At the start of combat, #y${ModID}:Summon a #y${ModID}:Skeleton"
+      "After you exhaust the first non- #y${ModID}:Undead card each turn, create and Exhaust a Skeleton"
     ]
   },
   "${ModID}:LichesPhylactery": {
     "NAME": "Lich's Phylactery",
-    "FLAVOR": "TODO: make this a sweet relic.",
+    "FLAVOR": "Life in Death, Soul and Flesh unbound the necromancer's magnum opus",
     "DESCRIPTIONS": [
       "When you gain the first #y${ModID}:Soul each combat gain #b3 #yTemporary_HP"
     ]

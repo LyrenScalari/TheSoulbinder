@@ -1,0 +1,33 @@
+{
+  "soulbindermod:UIText": {
+    "TEXT": [
+      "View subtype tutorial during the next combat you enter as the Justicar.",
+      "Enable Chimera cards crossover content."
+    ]
+  },
+  "soulbindermod:MultiIntentStrings": {
+    "TEXT": [
+      "This enemy intends to NL #yAttack ",
+      " for #b",
+      " damage.",
+      " damage #b",
+      " times.",
+      "This enemy intends to inflict a #yNegative #yEffect on ",
+      "."
+    ]
+  },
+  "soulbindermod:CardmodStrings": {
+    "TEXT": [
+      "NL ${ModID}:Exile",
+      "Ethereal NL ",
+      "Exhaust",
+      "Retain NL "
+    ]
+  },
+  "soulbindermod:ExileAction": {
+    "TEXT": [
+      "Exile",
+      ""
+    ]
+  }
+}
