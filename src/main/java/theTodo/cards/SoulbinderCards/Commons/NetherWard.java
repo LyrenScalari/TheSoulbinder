@@ -2,12 +2,13 @@ package theTodo.cards.SoulbinderCards.Commons;
 
 import basemod.BaseMod;
 import basemod.helpers.TooltipInfo;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theTodo.actions.GainSoulBarrierAction;
 import theTodo.cards.AbstractEasyCard;
+import theTodo.powers.SoulbinderPowerz.SoulbarrierPower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ public class NetherWard extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
-        addToBot(new GainSoulBarrierAction(p,magicNumber,false));
+        addToBot(new ApplyPowerAction(p,p,new SoulbarrierPower(p,magicNumber)));
     }
 
     public void upp() {

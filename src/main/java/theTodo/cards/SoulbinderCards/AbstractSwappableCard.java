@@ -36,16 +36,16 @@ public abstract class AbstractSwappableCard extends AbstractClickableCard {
 
     @Override
     public void upgrade() {
-        if (cardsToPreview != null && !looping) {
+        if (cardToPreview.get(0) != null && !looping) {
             looping = true;
-            cardsToPreview.upgrade();
+            cardToPreview.get(0).upgrade();
             looping = false;
         }
     }
 
     @Override
     public void onRightClick() {
-        if (canSwap() && action == null && cardsToPreview != null) {
+        if (canSwap() && action == null &&  cardToPreview.get(0) != null) {
             CardCrawlGame.sound.play("CARD_SELECT", 0.1F);
             if (AbstractDungeon.player.hand.contains(this)){
                 action = new SwapCardsAction(this, cardToPreview.get(0),(AbstractDungeon.player.hand));

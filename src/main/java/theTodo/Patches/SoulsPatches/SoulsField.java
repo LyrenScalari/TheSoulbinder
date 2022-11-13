@@ -1,6 +1,5 @@
-package theTodo.Patches.SoulsBarrierPatches;
+package theTodo.Patches.SoulsPatches;
 
-import basemod.abstracts.CustomSavable;
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 
@@ -13,9 +12,6 @@ public class SoulsField {
         return 0;
     });
     public static SpireField<Integer> MaxSouls = new SpireField(() -> {
-        return 0;
-    });
-    public static SpireField<Integer> SoulBarrier = new SpireField(() -> {
         return 0;
     });
     public SoulsField() {

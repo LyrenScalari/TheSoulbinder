@@ -69,9 +69,12 @@ public class Necropotence extends AbstractSwappableCard {
     }
 
     public void upp() {
+    }
+    public void upgrade() {
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         cardToPreview.get(0).upgrade();
         initializeDescription();
+        super.upgrade();
     }
 }
 

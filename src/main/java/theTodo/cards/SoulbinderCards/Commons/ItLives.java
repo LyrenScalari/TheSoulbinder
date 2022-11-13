@@ -49,8 +49,10 @@ public class ItLives extends AbstractEasyCard {
                             card.stopGlowing();
                             card.unhover();
                             card.unfadeOut();
+                            AbstractDungeon.player.exhaustPile.moveToDiscardPile(card);
+                        } else {
+                         card.triggerOnExhaust();
                         }
-                        AbstractDungeon.player.exhaustPile.moveToDiscardPile(card);
                         copy.setCostForTurn(0);
                         addToBot(new MakeTempCardInHandAction(copy,magicNumber,false));
                     });

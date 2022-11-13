@@ -24,7 +24,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theTodo.Patches.SoulsBarrierPatches.SoulsField;
+import theTodo.Patches.SoulsPatches.SoulsField;
 import theTodo.TheSoulbinder;
 import theTodo.util.CardArtRoller;
 import theTodo.util.TypeEnergyHelper;

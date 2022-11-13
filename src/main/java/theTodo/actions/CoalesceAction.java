@@ -11,30 +11,25 @@ import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 
 public class CoalesceAction extends AbstractGameAction
 {
-    private AbstractOrb gem;
-    boolean chipOrb = false;
+    private AbstractOrb coalesceOrb;
     private AbstractPlayer p;
-    int maxSize = -1;
     public CoalesceAction(AbstractOrb newOrbType)
     {
         actionType = ActionType.SPECIAL;
         duration = Settings.ACTION_DUR_FAST;
-        gem = newOrbType;
+        coalesceOrb = newOrbType;
         p = AbstractDungeon.player;
     }
 
     public void update()
     {
-        addToTop(new ChannelAction(gem, false));
-        p.maxOrbs += amount;
+        addToBot(new ChannelAction(coalesceOrb, false));
+        p.maxOrbs += 1;
+        p.orbs.add(new EmptyOrbSlot());
 
-        int i;
-        for(i = 0; i < amount; ++i) {
-            p.orbs.add(new EmptyOrbSlot());
-        }
-
-        for(i = 0; i < p.orbs.size(); ++i) {
+        for(int i = 0; i < p.orbs.size(); ++i) {
             ((AbstractOrb)p.orbs.get(i)).setSlot(i,p.maxOrbs);
         }
+        isDone = true;
     }
 }

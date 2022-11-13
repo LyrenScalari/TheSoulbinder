@@ -12,8 +12,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.GainCustomBlockAction;
-import com.evacipated.cardcrawl.mod.stslib.blockmods.BlockModContainer;
 import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
@@ -32,8 +30,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theTodo.Icons.*;
-import theTodo.Patches.SoulsBarrierPatches.SoulsField;
-import theTodo.actions.GainSoulBarrierAction;
+import theTodo.Patches.SoulsPatches.SoulsField;
 import theTodo.cards.AbstractEasyCard;
 import theTodo.cards.SoulbinderCards.Tokens.CorpseSpider;
 import theTodo.cards.SoulbinderCards.Tokens.FleshGolem;
@@ -45,7 +42,6 @@ import theTodo.relics.AbstractEasyRelic;
 import theTodo.util.AugmentHelper;
 import theTodo.util.SoulsCounter;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -274,9 +270,6 @@ PostBattleSubscriber{
         reloadmax = SoulsField.MaxSouls.get(AbstractDungeon.player);
         SoulsField.Souls.set(AbstractDungeon.player, reloadSouls);
         SoulsField.MaxSouls.set(AbstractDungeon.player,reloadmax);
-        if (SoulsField.Souls.get(AbstractDungeon.player) > 0){
-            AbstractDungeon.actionManager.addToBottom(new GainSoulBarrierAction(AbstractDungeon.player,SoulsField.Souls.get(AbstractDungeon.player)*2,false));
-        }
     }
 
     @Override

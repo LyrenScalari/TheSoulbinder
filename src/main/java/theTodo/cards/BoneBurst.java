@@ -5,6 +5,7 @@ import basemod.BaseMod;
 import basemod.helpers.TooltipInfo;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.evacipated.cardcrawl.mod.stslib.actions.defect.EvokeSpecificOrbAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -32,13 +33,11 @@ public class BoneBurst extends AbstractSwappableCard{
     public List<TooltipInfo> getCustomTooltips() {
         List<TooltipInfo> tags = new ArrayList<>();
         tags.add(new TooltipInfo(BaseMod.getKeywordTitle(SoulbinderMod.modID+":Swappable"),BaseMod.getKeywordDescription(SoulbinderMod.modID+":Swappable")));
-        tags.addAll(super.getCustomTooltips());
         return tags;
     }
     public BoneBurst (AbstractSwappableCard linkedCard) {
         super(ID, 0, CardType.SKILL,CardRarity.BASIC, CardTarget.SELF);
         magicNumber = baseMagicNumber = 1;
-        cardToPreview.add(new Skeleton());
         if (linkedCard == null) {
             setLinkedCard(new BoneSculpt(this));
         } else {
@@ -51,13 +50,26 @@ public class BoneBurst extends AbstractSwappableCard{
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractOrb o : AbstractDungeon.player.orbs) {
             if (o instanceof BonesOrb) {
+                if (upgraded){
+                    addToBot(new AbstractGameAction() {
+                        @Override
+                        public void update() {
+                            o.onEvoke();
+                            isDone = true;
+                        }
+                    });
+                }
                 addToTop(new EvokeSpecificOrbAction(o));
                 break;
             }
         }
     }
-
-    public void upp() {
+    public void upgrade() {
+        upgradeName();
+        rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
+        super.upgrade();
+    }
+    public void upp() {
     }
 }

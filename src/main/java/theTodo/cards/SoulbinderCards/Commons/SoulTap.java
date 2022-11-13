@@ -1,13 +1,11 @@
 package theTodo.cards.SoulbinderCards.Commons;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import theTodo.Patches.SoulsBarrierPatches.SoulsField;
+import theTodo.Patches.SoulsPatches.SoulsField;
 import theTodo.cards.AbstractEasyCard;
 import theTodo.powers.SoulbinderPowerz.NetherworldResonancePower;
 import theTodo.util.Wiz;

@@ -54,11 +54,14 @@ public class GraveShell extends AbstractEasyCard {
                             card.stopGlowing();
                             card.unhover();
                             card.unfadeOut();
+                            AbstractDungeon.player.exhaustPile.moveToDiscardPile(card);
+                        } else {
+                            card.triggerOnExhaust();
                         }
                         if (card.hasTag(SoulbinderMod.Undead)){
                             blck();
                         }
-                        AbstractDungeon.player.exhaustPile.moveToDiscardPile(card);
+
                     });
                 }));
             } else {
@@ -70,11 +73,14 @@ public class GraveShell extends AbstractEasyCard {
                             AbstractDungeon.player.exhaustPile.getTopCard().stopGlowing();
                             AbstractDungeon.player.exhaustPile.getTopCard().unhover();
                             AbstractDungeon.player.exhaustPile.getTopCard().unfadeOut();
+                            AbstractDungeon.player.exhaustPile.moveToDiscardPile(AbstractDungeon.player.exhaustPile.getTopCard());
+                        } else {
+                            AbstractDungeon.player.exhaustPile.getTopCard().triggerOnExhaust();
                         }
                         if (AbstractDungeon.player.exhaustPile.getTopCard().hasTag(SoulbinderMod.Undead)){
                             blck();
                         }
-                        AbstractDungeon.player.exhaustPile.moveToDiscardPile(AbstractDungeon.player.exhaustPile.getTopCard());
+
 
                         isDone = true;
                     }

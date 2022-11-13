@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -39,9 +40,21 @@ public class NetherworldResonancePower extends AbstractEasyPower
         isTurnBased = false;
         updateDescription();
     }
-    public void atStartOfTurn() {
-        this.flash();
-        addToBot(new RemoveSpecificPowerAction(owner,owner,this));
+    public void onRemove() {
+        for (AbstractOrb o : AbstractDungeon.player.orbs){
+            o.updateDescription();
+        }
+    }
+    public void onInitialApplication() {
+        for (AbstractOrb o : AbstractDungeon.player.orbs){
+            o.updateDescription();
+        }
+    }
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        for (AbstractOrb o : AbstractDungeon.player.orbs){
+            o.updateDescription();
+        }
     }
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {

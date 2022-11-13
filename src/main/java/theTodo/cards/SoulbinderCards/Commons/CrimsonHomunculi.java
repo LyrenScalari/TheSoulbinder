@@ -55,7 +55,7 @@ public class CrimsonHomunculi extends AbstractSwappableCard {
         } else {
             setLinkedCard(linkedCard);
         }
-        cardToPreview.add(new FleshGolem());
+        cardToPreview.add(1,new FleshGolem());
     }
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         boolean canUse = super.canUse(p, m);
@@ -76,7 +76,7 @@ public class CrimsonHomunculi extends AbstractSwappableCard {
             addToBot(new AbstractGameAction() {
                 @Override
                 public void update() {
-                    AbstractCard card = cardsToPreview.makeStatEquivalentCopy();
+                    AbstractCard card = cardToPreview.get(1).makeStatEquivalentCopy();
                     AbstractDungeon.player.limbo.addToBottom(card);
                     CardModifierManager.addModifier(card, new EntombedMod());
                     card.initializeDescription();
@@ -97,10 +97,13 @@ public class CrimsonHomunculi extends AbstractSwappableCard {
     }
 
     public void upp() {
+
+    }
+    public void upgrade() {
         upgradeMagicNumber(-1);
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         energyCosts.put(TypeEnergyHelper.Mana.Health,magicNumber);
-        cardToPreview.get(0).upgrade();
         initializeDescription();
+        super.upgrade();
     }
 }

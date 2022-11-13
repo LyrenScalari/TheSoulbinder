@@ -50,17 +50,19 @@ public class UnholyStrike extends AbstractEasyCard {
         addToBot(new VFXAction(new BiteEffect(m.hb.cX,m.hb.cY)));
         dmg(m, AbstractGameAction.AttackEffect.NONE);
         if (!AbstractDungeon.player.exhaustPile.group.isEmpty()) {
-            if (AbstractDungeon.player.drawPile.size() > magicNumber) {
+            if (AbstractDungeon.player.exhaustPile.size() > magicNumber) {
                 addToBot(new SelectCardsCenteredAction(AbstractDungeon.player.exhaustPile.group, magicNumber, cardStrings.EXTENDED_DESCRIPTION[0], false, (card) -> true, (AbstractCard) -> {
                     AbstractCard.forEach(card -> {
-                        AbstractCard copy = cardsToPreview.makeStatEquivalentCopy();
                         if (!CardModifierManager.hasModifier(card, "EntombedMod")) {
                             CardModifierManager.addModifier(card, new PurgeMod());
                             card.stopGlowing();
                             card.unhover();
                             card.unfadeOut();
+                            AbstractDungeon.player.exhaustPile.moveToDiscardPile(card);
+                        } else {
+                            card.triggerOnExhaust();
                         }
-                        AbstractDungeon.player.exhaustPile.moveToDiscardPile(card);
+
                     });
                 }));
             } else {
@@ -74,8 +76,10 @@ public class UnholyStrike extends AbstractEasyCard {
                             AbstractDungeon.player.exhaustPile.getTopCard().stopGlowing();
                             AbstractDungeon.player.exhaustPile.getTopCard().unhover();
                             AbstractDungeon.player.exhaustPile.getTopCard().unfadeOut();
+                            AbstractDungeon.player.exhaustPile.moveToDiscardPile(AbstractDungeon.player.exhaustPile.getTopCard());
+                        } else {
+                            copy.triggerOnExhaust();
                         }
-                        AbstractDungeon.player.exhaustPile.moveToDiscardPile(AbstractDungeon.player.exhaustPile.getTopCard());
                         isDone = true;
                     }
                 });

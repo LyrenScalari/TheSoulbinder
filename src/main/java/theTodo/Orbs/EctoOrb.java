@@ -65,7 +65,7 @@ public class EctoOrb extends AbstractCoalesceOrb {
     @Override
     public void updateDescription() { // Set the on-hover description of the orb
         applyFocus(); // Apply Focus (Look at the next method)
-        description = DESCRIPTIONS[0] + passiveAmount + DESCRIPTIONS[1] + DESCRIPTIONS[2] + evokeAmount + DESCRIPTIONS[3];
+        description = DESCRIPTIONS[0] + passiveAmount + DESCRIPTIONS[1] + DESCRIPTIONS[2]  + DESCRIPTIONS[3] + evokeAmount + DESCRIPTIONS[4];
     }
     public void applyFocus() {
         AbstractPower power = AbstractDungeon.player.getPower("Focus");

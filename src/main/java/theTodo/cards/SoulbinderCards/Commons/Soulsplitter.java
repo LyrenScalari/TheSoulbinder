@@ -51,8 +51,11 @@ public class Soulsplitter extends AbstractEasyCard {
                             card.stopGlowing();
                             card.unhover();
                             card.unfadeOut();
+                            AbstractDungeon.player.exhaustPile.moveToDiscardPile(card);
+                        } else {
+                            card.triggerOnExhaust();
                         }
-                        AbstractDungeon.player.exhaustPile.moveToDiscardPile(card);
+
                         CardModifierManager.removeModifiersById(copy,"EntombedMod",true);
                         CardModifierManager.addModifier(copy,new PurgeMod());
                         addToBot(new MakeTempCardInHandAction(copy));
@@ -71,16 +74,19 @@ public class Soulsplitter extends AbstractEasyCard {
                             AbstractDungeon.player.exhaustPile.getTopCard().stopGlowing();
                             AbstractDungeon.player.exhaustPile.getTopCard().unhover();
                             AbstractDungeon.player.exhaustPile.getTopCard().unfadeOut();
+                            AbstractDungeon.player.exhaustPile.moveToDiscardPile(AbstractDungeon.player.exhaustPile.getTopCard());
                             if (upgraded){
                                 AbstractDungeon.player.exhaustPile.getNCardFromTop(1).stopGlowing();
                                 AbstractDungeon.player.exhaustPile.getNCardFromTop(1).unhover();
                                 AbstractDungeon.player.exhaustPile.getNCardFromTop(1).unfadeOut();
+                                AbstractDungeon.player.exhaustPile.moveToDiscardPile(AbstractDungeon.player.exhaustPile.getNCardFromTop(1));
+                            } else {
+                                AbstractDungeon.player.exhaustPile.getNCardFromTop(1).triggerOnExhaust();
                             }
+                        } else {
+                            AbstractDungeon.player.exhaustPile.getTopCard().triggerOnExhaust();
                         }
-                        if (upgraded){
-                            AbstractDungeon.player.exhaustPile.moveToDiscardPile(AbstractDungeon.player.exhaustPile.getNCardFromTop(1));
-                        }
-                        AbstractDungeon.player.exhaustPile.moveToDiscardPile(AbstractDungeon.player.exhaustPile.getTopCard());
+
                         CardModifierManager.removeModifiersById(copy,"EntombedMod",true);
                         addToBot(new MakeTempCardInHandAction(copy));
                         if (upgraded) {

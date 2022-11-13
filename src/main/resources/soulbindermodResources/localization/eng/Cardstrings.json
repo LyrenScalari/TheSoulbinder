@@ -20,7 +20,8 @@
   },
   "${ModID}:BoneBurst": {
     "NAME": "Bone Burst",
-    "DESCRIPTION": "Evoke your next ${ModID}:Bones."
+    "DESCRIPTION": "Evoke your next ${ModID}:Bones.",
+    "UPGRADE_DESCRIPTION": "Evoke your next ${ModID}:Bones twice."
   },
   "${ModID}:CorpseJar": {
     "NAME": "Corpse Jar",
@@ -185,7 +186,7 @@
   },
   "${ModID}:Skeleton": {
     "NAME": "Skeleton",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !B! [soulbindermod:BlockIcon] NL Apply !M! [soulbindermod:WeakIcon] NL ${ModID}:Bury : ${ModID}:Coalesce ${ModID}:Bones.",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! NL Apply !M! NL ${ModID}:Bury : ${ModID}:Coalesce ${ModID}:Bones.",
     "EXTENDED_DESCRIPTION": ["Entomb"]
   },
   "${ModID}:CorpseSpider": {

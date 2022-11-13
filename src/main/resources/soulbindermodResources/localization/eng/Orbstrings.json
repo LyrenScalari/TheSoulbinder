@@ -16,7 +16,7 @@
       " damage to a random enemy.",
       "",
       " NL #yEvoke: gain #b",
-      "[soulbindermod:BlockIcon] [REMOVE_SPACE] ."
+      " [soulbindermod:BlockIcon] [REMOVE_SPACE] ."
     ]
   },
   "${ModID}:Bile": {

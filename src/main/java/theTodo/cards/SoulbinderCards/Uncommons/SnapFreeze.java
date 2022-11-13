@@ -2,11 +2,13 @@ package theTodo.cards.SoulbinderCards.Uncommons;
 
 import basemod.BaseMod;
 import basemod.helpers.TooltipInfo;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theTodo.cards.AbstractEasyCard;
+import theTodo.powers.SoulbinderPowerz.SnapFreezePower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,7 @@ public class SnapFreeze extends AbstractEasyCard {
         magicNumber = baseMagicNumber = 4;
     }
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        addToBot(new ApplyPowerAction(p,p,new SnapFreezePower(p,magicNumber)));
     }
     @Override
     public void upp() {

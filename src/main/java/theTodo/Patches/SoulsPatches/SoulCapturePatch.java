@@ -1,4 +1,4 @@
-package theTodo.Patches.SoulsBarrierPatches;
+package theTodo.Patches.SoulsPatches;
 
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;

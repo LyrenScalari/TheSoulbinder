@@ -74,8 +74,8 @@ public class Lifelink extends AbstractEasyCard {
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                magicNumber +=secondMagic;
-                baseMagicNumber += secondMagic;
+                magicNumber +=1;
+                baseMagicNumber += 1;
                 energyCosts.put(TypeEnergyHelper.Mana.Health,magicNumber);
                 isDone = true;
             }

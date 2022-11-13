@@ -22,6 +22,7 @@ import theTodo.cardmods.PurgeMod;
 import theTodo.cards.AbstractEasyCard;
 import theTodo.cards.SoulbinderCards.AbstractSwappableCard;
 import theTodo.cards.SoulbinderCards.Swappables.Necropotence;
+import theTodo.util.TypeEnergyHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,11 +82,12 @@ public class Necroblast extends AbstractSwappableCard {
                             card.stopGlowing();
                             card.unhover();
                             card.unfadeOut();
+                            if (upgraded){
+                                AbstractDungeon.player.exhaustPile.moveToDiscardPile(card);
+                            } else AbstractDungeon.player.exhaustPile.removeCard(card);
+                        } else {
+                            card.triggerOnExhaust();
                         }
-
-                        if (upgraded){
-                            AbstractDungeon.player.exhaustPile.moveToDiscardPile(card);
-                        } else AbstractDungeon.player.exhaustPile.removeCard(card);
 
                         if (card.baseDamage > card.baseBlock){
                             addToBot(new DamageAction(m,new DamageInfo(p,card.baseDamage*2, DamageInfo.DamageType.NORMAL)));
@@ -106,8 +108,12 @@ public class Necroblast extends AbstractSwappableCard {
                             FilteredExhaustCards.get(0).stopGlowing();
                             FilteredExhaustCards.get(0).unhover();
                             FilteredExhaustCards.get(0).unfadeOut();
+                            if (upgraded){
+                                AbstractDungeon.player.exhaustPile.moveToDiscardPile(FilteredExhaustCards.get(0));
+                            } else AbstractDungeon.player.exhaustPile.removeCard(FilteredExhaustCards.get(0));
+                        } else {
+                            FilteredExhaustCards.get(0).triggerOnExhaust();
                         }
-                        AbstractDungeon.player.exhaustPile.removeCard(FilteredExhaustCards.get(0));
                         if (FilteredExhaustCards.get(0).baseDamage > FilteredExhaustCards.get(0).baseBlock){
                             addToBot(new DamageAction(m,new DamageInfo(p,FilteredExhaustCards.get(0).baseDamage*2, DamageInfo.DamageType.NORMAL)));
                             addToBot(new GainBlockAction(p,FilteredExhaustCards.get(0).baseDamage*2));
@@ -131,10 +137,15 @@ public class Necroblast extends AbstractSwappableCard {
         return false;
     }
 
-    public void upp() {
+    public void upgrade() {
         upgradeDamage(2);
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
-        cardToPreview.get(0).upgrade();
+        super.upgrade();
+    }
+
+    @Override
+    public void upp() {
+
     }
 }

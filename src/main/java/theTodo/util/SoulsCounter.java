@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.TipHelper;
-import theTodo.Patches.SoulsBarrierPatches.SoulsField;
+import theTodo.Patches.SoulsPatches.SoulsField;
 
 public class SoulsCounter extends ClickableUIElement {
     public Hitbox hb;
@@ -51,9 +51,6 @@ public class SoulsCounter extends ClickableUIElement {
         sb.setBlendFunction(770, 771);
         sb.draw(Gem, this.x - (float) image.getWidth(), this.y - (float) image.getHeight()/1.5f, (float) Gem.getWidth() / 2.0F, (float)Gem.getHeight() / 2.0F,
                 (float)Gem.getHeight(), (float) Gem.getHeight(), 2.0f * Settings.scale, 2.0f * Settings.scale, 0,0,0,50,74,false,false);
-        if (SoulsField.MaxSouls.get(AbstractDungeon.player) > 0 ) {
-            FontHelper.renderFontCentered(sb, FontHelper.energyNumFontBlue, "" + SoulsField.MaxSouls.get(AbstractDungeon.player)*3, current_x + x - baseX, y - 40.0f * Settings.scale, Color.WHITE, fontScale);
-        }
         FontHelper.renderFontCentered(sb, FontHelper.energyNumFontRed, SoulsField.Souls.get(AbstractDungeon.player).toString(),  current_x + x - baseX, y + 4.0f * Settings.scale, Color.WHITE, fontScale);
         hb.render(sb);
     }
@@ -64,7 +61,6 @@ public class SoulsCounter extends ClickableUIElement {
     @Override
     protected void onHover() {
         TipHelper.renderGenericTip(x + 55.0F * Settings.scale, y + 23.0F * Settings.scale, BaseMod.getKeywordTitle("soulbindermod:Soul_Gem"), BaseMod.getKeywordDescription("soulbindermod:Soul_Gem"));
-        TipHelper.renderGenericTip(x + 55.0F * Settings.scale, y + 50.0F * Settings.scale, BaseMod.getKeywordTitle("soulbindermod:Soul_Barrier"), BaseMod.getKeywordDescription("soulbindermod:Soul_Barrier"));
     }
 
     @Override

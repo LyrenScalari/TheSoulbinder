@@ -67,7 +67,7 @@
       "soul_gem",
       "Soul_Gem"
     ],
-    "DESCRIPTION": "#ySouls are stored in your #ySoul #yGem. While stored #ySouls provide #b2 #ySoul #yBarrier at the start of combat. NL Gain #b1 #ySoul when a non-minion enemy dies. NL Whenever you gain a Soul, increase your Max #ySoul #yBarrier by #b3 "
+    "DESCRIPTION": "#ySouls are stored in your #ySoul #yGem. Gain #b1 #ySoul when a non-minion enemy dies. NL #ySouls are used to determine the effect value of some cards."
   },
   {
     "PROPER_NAME": "[soulbindermod:SoulBarrierIcon] Soul Barrier",

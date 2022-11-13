@@ -3,6 +3,8 @@ package theTodo.powers.SoulbinderPowerz;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.patches.NeutralPowertypePatch;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -15,6 +17,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theTodo.SoulbinderMod;
+import theTodo.cards.SoulbinderCards.Uncommons.SnapFreeze;
 import theTodo.powers.AbstractEasyPower;
 import theTodo.util.TexLoader;
 
@@ -50,6 +53,11 @@ public class RimePower extends AbstractEasyPower
                 this.addToTop(new GainBlockAction(AbstractDungeon.player, this.amount/2, Settings.FAST_MODE));
                 if (!owner.hasPower(FrostFeverPower.POWER_ID)){
                     addToBot(new ReducePowerAction(owner,owner,this,1));
+                }
+                if (AbstractDungeon.player.hasPower(SnapFreezePower.POWER_ID)){
+                    AbstractDungeon.player.getPower(SnapFreezePower.POWER_ID).flash();
+                    addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player,AbstractDungeon.player.getPower(SnapFreezePower.POWER_ID).amount, DamageInfo.DamageType.THORNS),
+                            AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 }
             }
 

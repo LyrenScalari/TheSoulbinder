@@ -2,19 +2,14 @@ package theTodo.util;
 
 import basemod.BaseMod;
 import basemod.helpers.TooltipInfo;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.GainCustomBlockAction;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
-import com.evacipated.cardcrawl.mod.stslib.blockmods.BlockModContainer;
 import com.evacipated.cardcrawl.mod.stslib.damagemods.AbstractDamageModifier;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.combat.FlyingOrbEffect;
-import theTodo.Patches.SoulsBarrierPatches.SoulsField;
-import theTodo.actions.GainSoulBarrierAction;
 
 import java.util.ArrayList;
 

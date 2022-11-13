@@ -25,6 +25,12 @@
       "[soulbindermod:RimeIcon] and [soulbindermod:PoisonIcon] do not reduce. each turn this reduces this by #b1"
     ]
   },
+  "${ModID}:SnapFreezePower": {
+    "NAME": "Snap Freeze",
+    "DESCRIPTIONS": [
+      "Whenever you attack a creature with [soulbindermod:RimeIcon] deal #b"," damage"
+    ]
+  },
   "${ModID}:NetherworldResonancePower": {
     "NAME": "Netherworld Resonance",
     "DESCRIPTIONS": [

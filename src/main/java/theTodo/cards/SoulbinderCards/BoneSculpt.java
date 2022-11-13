@@ -38,7 +38,7 @@ public class BoneSculpt extends AbstractSwappableCard{
         } else {
             setLinkedCard(linkedCard);
         }
-        cardToPreview.add(new Skeleton());
+        cardToPreview.add(1,new Skeleton());
     }
     public  BoneSculpt() {
         this(null);
@@ -56,9 +56,12 @@ public class BoneSculpt extends AbstractSwappableCard{
     }
 
     public void upp() {
+    }
+    public void upgrade() {
+        upgradeName();
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        cardToPreview.get(0).upgrade();
         cardToPreview.get(1).upgrade();
         initializeDescription();
+        super.upgrade();
     }
 }

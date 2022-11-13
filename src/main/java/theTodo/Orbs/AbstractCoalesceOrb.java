@@ -16,9 +16,6 @@ public abstract class AbstractCoalesceOrb extends CustomOrb {
         if (power != null && !this.ID.equals("Plasma")) {
             this.passiveAmount = Math.max(0, this.basePassiveAmount + power.amount);
             this.evokeAmount = Math.max(0, this.baseEvokeAmount + power.amount);
-        } else {
-            this.passiveAmount = this.basePassiveAmount;
-            this.evokeAmount = this.baseEvokeAmount;
         }
         AbstractPower power2 = AbstractDungeon.player.getPower(NetherworldResonancePower.POWER_ID);
         if (power2 != null && !this.ID.equals("Plasma")) {
