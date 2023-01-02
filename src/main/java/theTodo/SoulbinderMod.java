@@ -157,19 +157,6 @@ PostBattleSubscriber{
                         UnlockTracker.markRelicAsSeen(relic.relicId);
                     }
                 });
-        CustomIconHelper.addCustomIcon(BlockIcon.get());
-        CustomIconHelper.addCustomIcon(WeakIcon.get());
-        CustomIconHelper.addCustomIcon(VulnerableIcon.get());
-        CustomIconHelper.addCustomIcon(PoisonIcon.get());
-        CustomIconHelper.addCustomIcon(VenomIcon.get());
-        CustomIconHelper.addCustomIcon(FrostIcon.get());
-        CustomIconHelper.addCustomIcon(RimeIcon.get());
-        CustomIconHelper.addCustomIcon(FrostFeverIcon.get());
-        CustomIconHelper.addCustomIcon(SyphonIcon.get());
-        CustomIconHelper.addCustomIcon(LambdaIcon.get());
-        CustomIconHelper.addCustomIcon(BloodcastIcon.get());
-        CustomIconHelper.addCustomIcon(SoulBarrierIcon.get());
-        CustomIconHelper.addCustomIcon(TempHPIcon.get());
     }
     public void receivePostInitialize() {
         soulsCounter = new SoulsCounter( ImageMaster.loadImage("soulbindermodResources/images/ui/Soul.png"));
@@ -229,6 +216,19 @@ PostBattleSubscriber{
     public void receiveEditCards() {
         BaseMod.addDynamicVariable(new SecondMagicNumber());
         BaseMod.addDynamicVariable(new SecondDamage());
+        CustomIconHelper.addCustomIcon(BlockIcon.get());
+        CustomIconHelper.addCustomIcon(WeakIcon.get());
+        CustomIconHelper.addCustomIcon(VulnerableIcon.get());
+        CustomIconHelper.addCustomIcon(PoisonIcon.get());
+        CustomIconHelper.addCustomIcon(VenomIcon.get());
+        CustomIconHelper.addCustomIcon(FrostIcon.get());
+        CustomIconHelper.addCustomIcon(RimeIcon.get());
+        CustomIconHelper.addCustomIcon(FrostFeverIcon.get());
+        CustomIconHelper.addCustomIcon(SyphonIcon.get());
+        CustomIconHelper.addCustomIcon(LambdaIcon.get());
+        CustomIconHelper.addCustomIcon(BloodcastIcon.get());
+        CustomIconHelper.addCustomIcon(SoulBarrierIcon.get());
+        CustomIconHelper.addCustomIcon(TempHPIcon.get());
         new AutoAdd(modID)
                 .packageFilter(AbstractEasyCard.class)
                 .setDefaultSeen(true)
